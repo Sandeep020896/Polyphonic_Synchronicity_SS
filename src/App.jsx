@@ -409,7 +409,7 @@ function MatildaPanel() {
       <img
         src={MATILDA_IMAGE}
         alt="Matilda by Roald Dahl"
-        style={{ height:"100%", width:"100%", objectFit:"cover", objectPosition:"center top", position:"relative", zIndex:1 }}
+        style={{ height:"100%", width:"100%", objectFit:"contain", objectPosition:"center", position:"relative", zIndex:1, maxWidth:"900px", margin:"0 auto" }}
       />
     </div>
   );
@@ -417,25 +417,29 @@ function MatildaPanel() {
 
 function DuaPanel() {
   return (
-    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:COLORS.ink, display:"flex", alignItems:"center", justifyContent:"center" }}>
+    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#0a0608", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0, overflow:"hidden" }}>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg"
-          alt="Dua Lipa"
-          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.35 }}
-          onError={(e) => { e.target.style.display="none"; }}
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dua_Lipa_Glasto24_28_300624_%28314_of_545%29_%2853836769052%29_%28cropped%29.jpg/800px-Dua_Lipa_Glasto24_28_300624_%28314_of_545%29_%2853836769052%29_%28cropped%29.jpg"
+          alt="Dua Lipa at Glastonbury 2024"
+          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.45 }}
+          onError={(e) => {
+            e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg/800px-Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg";
+          }}
         />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(26,18,8,0.5) 0%, rgba(26,18,8,0.7) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(10,6,8,0.3) 0%, rgba(10,6,8,0.65) 60%, rgba(10,6,8,0.85) 100%)" }} />
       </div>
-      <div style={{ position:"relative", zIndex:2, maxWidth:"760px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"1.5rem" }}>
-        <div style={{ border:`1px solid rgba(201,168,76,0.5)`, borderRadius:"100px", padding:"0.3rem 1.1rem" }}>
+      <div style={{ position:"relative", zIndex:2, maxWidth:"780px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"1.75rem" }}>
+        <div style={{ border:`1px solid rgba(201,168,76,0.5)`, borderRadius:"100px", padding:"0.3rem 1.2rem" }}>
           <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.gold }}>Service95 · International Booker Prize 2026</span>
         </div>
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 5vw, 3.5rem)", fontStyle:"italic", fontWeight:700, color:"#fff", lineHeight:1.25, margin:0 }}>
+        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 5vw, 3.6rem)", fontStyle:"italic", fontWeight:700, color:"#fff", lineHeight:1.2, margin:0 }}>
           "What a joy it is to read. What a joy to read the world."
         </p>
-        <div style={{ width:"48px", height:"2px", background:COLORS.gold }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.8rem", letterSpacing:"0.1em", color:"rgba(255,255,255,0.5)", textTransform:"uppercase", margin:0 }}>— Dua Lipa, International Booker Prize 10th Anniversary, 2026</p>
+        <div style={{ width:"56px", height:"2px", background:COLORS.gold }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.82rem", letterSpacing:"0.1em", color:"rgba(255,255,255,0.5)", textTransform:"uppercase", margin:0 }}>
+          — Dua Lipa, International Booker Prize 10th Anniversary, 2026
+        </p>
       </div>
     </div>
   );
@@ -443,25 +447,28 @@ function DuaPanel() {
 
 function RowlingPanel() {
   return (
-    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#1a1208", display:"flex", alignItems:"center", justifyContent:"center" }}>
+    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#0d0c08", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0 }}>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/5b/J._K._Rowling_2010.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/J._K._Rowling_2010.jpg/800px-J._K._Rowling_2010.jpg"
           alt="J.K. Rowling"
-          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.38, filter:"grayscale(20%)" }}
-          onError={(e) => { e.target.parentElement.style.background="#2a1a10"; e.target.style.display="none"; }}
+          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center 15%", opacity:0.42, filter:"grayscale(15%) contrast(1.05)" }}
+          onError={(e) => {
+            e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Jk-rowling-crop.JPG/400px-Jk-rowling-crop.JPG";
+            e.target.onerror = () => { e.target.style.display="none"; };
+          }}
         />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(26,18,8,0.75) 0%, rgba(26,18,8,0.5) 50%, rgba(26,18,8,0.8) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(13,12,8,0.4) 0%, rgba(13,12,8,0.55) 40%, rgba(13,12,8,0.88) 100%)" }} />
       </div>
-      <div style={{ position:"relative", zIndex:2, maxWidth:"720px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem" }}>
-        <div style={{ border:"1px solid rgba(201,147,58,0.4)", borderRadius:"100px", padding:"0.3rem 1.1rem" }}>
+      <div style={{ position:"relative", zIndex:2, maxWidth:"740px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem" }}>
+        <div style={{ border:"1px solid rgba(201,147,58,0.45)", borderRadius:"100px", padding:"0.3rem 1.2rem" }}>
           <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.gold }}>J.K. Rowling</span>
         </div>
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.8rem, 4.5vw, 3rem)", fontStyle:"italic", lineHeight:1.35, color:"#fff", margin:0 }}>
+        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.9rem, 4.5vw, 3.1rem)", fontStyle:"italic", lineHeight:1.32, color:"#fff", margin:0 }}>
           "No story lives unless someone wants to listen. The stories we love best do live in us forever."
         </p>
-        <div style={{ width:"48px", height:"2px", background:COLORS.gold }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.8rem", letterSpacing:"0.1em", color:"rgba(255,255,255,0.45)", textTransform:"uppercase", margin:0 }}>— On the power of stories</p>
+        <div style={{ width:"56px", height:"2px", background:COLORS.gold }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.82rem", letterSpacing:"0.1em", color:"rgba(255,255,255,0.45)", textTransform:"uppercase", margin:0 }}>— On the power of stories</p>
       </div>
     </div>
   );
@@ -1082,9 +1089,26 @@ function AdminDashboard({ books, onSave, onBack }) {
               ))}
               <div>
                 <label style={S.label}>Genre</label>
-                <select value={editing.genre || ""} onChange={e => updateBook(editing.id, "genre", e.target.value)} style={S.select}>
-                  {allGenres.map(g => <option key={g} value={g}>{g}</option>)}
+                <select
+                  value={GENRES.includes(editing.genre) ? editing.genre : (editing.genre ? "Other" : "")}
+                  onChange={e => {
+                    if (e.target.value === "Other") updateBook(editing.id, "genre", "");
+                    else updateBook(editing.id, "genre", e.target.value);
+                  }}
+                  style={S.select}
+                >
+                  <option value="">— select —</option>
+                  {GENRES.map(g => <option key={g} value={g}>{g}</option>)}
+                  <option value="Other">Other (type below)</option>
                 </select>
+                {!GENRES.includes(editing.genre) && (
+                  <input
+                    value={editing.genre || ""}
+                    onChange={e => updateBook(editing.id, "genre", e.target.value)}
+                    placeholder="Type your genre…"
+                    style={{ ...S.input, marginTop: "0.5rem" }}
+                  />
+                )}
               </div>
               <div>
                 <label style={S.label}>Quarter</label>
