@@ -349,7 +349,6 @@ function MainLayout({ page, navigate, books, onBookClick }) {
   return (
     <div style={{ fontFamily: FONTS.sans, background: COLORS.parchment, color: COLORS.ink, minHeight:"100vh" }}>
       <Nav page={page} navigate={navigate} />
-      <MughalBanner onClick={() => navigate("home")} />
       {page === "home" && <HomePage books={books} onBookClick={onBookClick} />}
       {page === "readinglist" && <ReadingListPage books={books} onBookClick={onBookClick} />}
       {page === "bookclub" && <BookClubPage books={books} onBookClick={onBookClick} />}
@@ -360,15 +359,13 @@ function MainLayout({ page, navigate, books, onBookClick }) {
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 function Nav({ page, navigate }) {
   return (
-    <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(250,247,242,0.97)", borderBottom:`1px solid ${COLORS.border}`, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0.5rem 2.5rem", backdropFilter:"blur(8px)" }}>
+    <nav style={{ position:"sticky", top:0, zIndex:100, background:"#8B1A1A", display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0.65rem 2.5rem", borderBottom:"2px solid #1a4a3a" }}>
       <div style={{ display:"flex", gap:"2.5rem", alignItems:"center" }}>
         {[["home","Books"],["readinglist","Reading List"],["bookclub","S&S Book Club"]].map(([id,label]) => (
-          <span key={id} onClick={() => navigate(id)} style={{ fontFamily:"'Yatra One', Georgia, serif", fontSize:"1rem", letterSpacing:"0.06em", cursor:"pointer", color: page===id ? COLORS.goldDark : "#6b5c40", borderBottom: page===id ? `2px solid ${COLORS.gold}` : "2px solid transparent", paddingBottom:"3px", transition:"color 0.2s, border-color 0.2s", fontWeight:400 }}>{label}</span>
+          <span key={id} onClick={() => navigate(id)} style={{ fontFamily:"'Yatra One', Georgia, serif", fontSize:"1.05rem", letterSpacing:"0.04em", cursor:"pointer", color: page===id ? "#f2c840" : "rgba(240,218,168,0.7)", borderBottom: page===id ? `2px solid #f2c840` : "2px solid transparent", paddingBottom:"3px", transition:"color 0.2s, border-color 0.2s" }}>{label}</span>
         ))}
       </div>
-      <div style={{ display:"flex", alignItems:"center", gap:"1rem" }}>
-        <span onClick={() => navigate("admin")} style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", color: COLORS.muted, opacity:0.5 }} title="Admin">⚙</span>
-      </div>
+      <span onClick={() => navigate("admin")} style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", color:"rgba(240,218,168,0.45)" }} title="Admin">⚙</span>
     </nav>
   );
 }
@@ -404,32 +401,28 @@ function HomePage({ books, onBookClick }) {
 // ─── HERO PANELS ──────────────────────────────────────────────────────────────
 function MatildaPanel() {
   return (
-    <div style={{ height:"100vh", overflow:"hidden", position:"relative", background:"#fdf6ee", display:"flex", alignItems:"stretch" }}>
-      <div style={{ position:"absolute", inset:0, backgroundImage:`radial-gradient(${COLORS.goldLight} 1px, transparent 1px)`, backgroundSize:"28px 28px", opacity:0.25 }} />
+    <div style={{ height:"100vh", overflow:"hidden", position:"relative", background:"#fdf6ee" }}>
       <img
         src="https://tse3.mm.bing.net/th/id/OIP.nwqIUEzTrOce5rA4YiosvQHaLX?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3"
         alt="Matilda by Roald Dahl"
-        style={{ height:"100%", width:"50%", objectFit:"cover", objectPosition:"top center", position:"relative", zIndex:1, flexShrink:0 }}
+        style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center" }}
         onError={(e) => {
           e.target.src = MATILDA_IMAGE;
-          e.target.style.objectFit = "contain";
-          e.target.style.objectPosition = "center";
         }}
       />
-      <div style={{ flex:1, display:"flex", alignItems:"center", justifyContent:"center", padding:"3rem 3.5rem", position:"relative", zIndex:2 }}>
-        <div style={{ maxWidth:"440px" }}>
-          <div style={{ width:"40px", height:"3px", background:COLORS.gold, marginBottom:"2rem" }} />
-          <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.1rem, 2.2vw, 1.55rem)", lineHeight:1.75, color:COLORS.ink, margin:"0 0 1.5rem", fontStyle:"italic" }}>
-            "So Matilda's strong young mind continued to grow, nurtured by the voices of all those authors who had sent their books out into the world like ships on the sea.
-          </p>
-          <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.1rem, 2.2vw, 1.55rem)", lineHeight:1.75, color:COLORS.ink, margin:"0 0 2rem", fontStyle:"italic" }}>
-            These books gave Matilda a hopeful and comforting message: <strong style={{ fontStyle:"normal", fontWeight:700 }}>You are not alone.</strong>"
-          </p>
-          <div style={{ width:"40px", height:"1px", background:COLORS.border, marginBottom:"1.25rem" }} />
-          <p style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", letterSpacing:"0.15em", textTransform:"uppercase", color:COLORS.muted, margin:0 }}>
-            — Roald Dahl, Matilda
-          </p>
-        </div>
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(253,246,238,0) 30%, rgba(253,246,238,0.15) 50%, rgba(253,246,238,0.92) 72%, rgba(253,246,238,1) 100%)" }} />
+      <div style={{ position:"absolute", bottom:0, left:0, right:0, padding:"3rem 4rem 3.5rem", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center" }}>
+        <div style={{ width:"40px", height:"2px", background:COLORS.gold, marginBottom:"1.5rem" }} />
+        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1rem, 2vw, 1.45rem)", lineHeight:1.72, color:COLORS.ink, margin:"0 0 0.85rem", fontStyle:"italic", maxWidth:"660px" }}>
+          "So Matilda's strong young mind continued to grow, nurtured by the voices of all those authors who had sent their books out into the world like ships on the sea. These books gave Matilda a hopeful and comforting message:
+        </p>
+        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.2rem, 2.5vw, 1.7rem)", fontWeight:700, color:COLORS.ink, margin:"0 0 1.5rem", fontStyle:"normal" }}>
+          You are not alone."
+        </p>
+        <div style={{ width:"36px", height:"1px", background:COLORS.border, marginBottom:"1rem" }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.muted, margin:0 }}>
+          Roald Dahl, Matilda
+        </p>
       </div>
     </div>
   );
@@ -502,15 +495,29 @@ function MonthSection({ group, onBookClick }) {
   const reading = books.filter(b => b.status === "reading").length;
   const upcoming = books.filter(b => b.status === "upcoming").length;
   const prizes = [...new Set(books.flatMap(b => b.prizes || []))];
-  // Auto-generate description from actual data
-  const descParts = [];
-  if (books.length > 0) descParts.push(`${books.length} book${books.length > 1 ? "s" : ""} this month`);
-  if (done > 0 && reading > 0) descParts.push(`${done} finished, ${reading} in progress`);
-  else if (done > 0) descParts.push(`${done} finished`);
-  else if (reading > 0) descParts.push(`${reading} in progress`);
-  if (upcoming > 0) descParts.push(`${upcoming} coming up`);
-  if (prizes.length > 0) descParts.push(prizes.slice(0,3).join(", ") + " represented");
-  const autoDesc = descParts.join(" — ") + ".";
+  const genres = [...new Set(books.map(b => b.genre).filter(Boolean))];
+  // Build a story-led description without long dashes or tag names
+  const buildDesc = () => {
+    const parts = [];
+    const total = books.length;
+    if (total === 0) return "Coming up.";
+    const statusLine = done > 0 && reading > 0
+      ? `${done} finished and ${reading} still in progress`
+      : done > 0 ? `${done} finished`
+      : reading > 0 ? `${reading} currently reading`
+      : `${upcoming} on the horizon`;
+    const genreStr = genres.length > 0
+      ? genres.slice(0,3).join(", ").toLowerCase()
+      : null;
+    const prizeStr = prizes.length > 0
+      ? prizes.slice(0,2).join(" and ")
+      : null;
+    let sentence = `${total} book${total > 1 ? "s" : ""} this month, ${statusLine}.`;
+    if (genreStr) sentence += ` Spanning ${genreStr}.`;
+    if (prizeStr) sentence += ` ${prizeStr} territory.`;
+    return sentence;
+  };
+  const autoDesc = buildDesc();
   return (
     <section style={{ padding:"6rem 2.5rem", maxWidth:"1200px", margin:"0 auto", borderBottom:`1px solid ${COLORS.border}` }}>
       <div style={{ marginBottom:"4rem", textAlign:"center" }}>
@@ -606,7 +613,7 @@ function BookDetail({ book, onBack }) {
           <button onClick={onBack} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.08em", textTransform:"uppercase", color:COLORS.muted, padding:0 }}>← Back</button>
           <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.08em", color:COLORS.muted, opacity:0.6 }}>{book.title}</span>
         </div>
-        <MughalBanner onClick={onBack} />
+        <div style={{ background:"#8B1A1A", borderBottom:"2px solid #1a4a3a", height:"6px", backgroundImage:"repeating-linear-gradient(90deg, #c9933a 0px, #c9933a 8px, #2a6a5a 8px, #2a6a5a 16px)" }} />
       </div>
 
       <div style={{ maxWidth:"900px", margin:"0 auto", padding:"3.5rem 2.5rem" }}>
