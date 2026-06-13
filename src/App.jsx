@@ -136,9 +136,10 @@ export default function App() {
 function SplashPage({ onEnter, fading }) {
   return (
     <div style={{
-      position: "relative",
+      position: "fixed",
+      inset: 0,
       width: "100vw",
-      minHeight: "100vh",
+      height: "100vh",
       background: "#8B1A1A",
       display: "flex",
       flexDirection: "column",
@@ -147,6 +148,7 @@ function SplashPage({ onEnter, fading }) {
       overflow: "hidden",
       opacity: fading ? 0 : 1,
       transition: "opacity 0.6s ease",
+      zIndex: 9999,
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
@@ -159,7 +161,7 @@ function SplashPage({ onEnter, fading }) {
       <svg
         viewBox="0 0 680 520"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: "100%", maxWidth: "900px", height: "auto", display: "block" }}
+        style={{ width: "min(90vw, 820px)", height: "auto", display: "block", margin: "0 auto" }}
         aria-label="Polyphonic Synchronicity"
       >
         <rect width="680" height="520" fill="#8B1A1A"/>
@@ -518,7 +520,7 @@ function BookCard({ book, meta, onClick }) {
         }
         <div style={{ position:"absolute", top:"0.75rem", left:"0.75rem", background:m.bg, color:m.color, fontSize:"0.6rem", letterSpacing:"0.1em", textTransform:"uppercase", fontFamily:FONTS.sans, fontWeight:500, padding:"0.2rem 0.55rem", borderRadius:"2px" }}>{m.label}</div>
         {book.rating && <div style={{ position:"absolute", bottom:"0.75rem", right:"0.75rem", background:"rgba(26,18,8,0.75)", color:COLORS.gold, fontSize:"0.78rem", fontFamily:FONTS.serif, fontWeight:600, padding:"0.2rem 0.55rem", borderRadius:"2px" }}>★ {book.rating}</div>}
-        <div style={{ position:"absolute", inset:0, background: hovered ? "rgba(0,0,0,0)" : "transparent", transition:"all 0.25s" }}>
+        <div style={{ position:"absolute", inset:0, pointerEvents:"none", transition:"all 0.25s" }}>
           {hovered && (
             <div style={{ position:"absolute", bottom:0, left:0, right:0, background:"linear-gradient(to top, rgba(26,18,8,0.92) 0%, transparent 100%)", padding:"2rem 1rem 1rem", display:"flex", flexDirection:"column", gap:"0.3rem" }}>
               {book.prizes && book.prizes.length > 0 && <div style={{ display:"flex", gap:"0.3rem", flexWrap:"wrap" }}>
@@ -526,7 +528,7 @@ function BookCard({ book, meta, onClick }) {
               </div>}
               <span style={{ fontFamily:FONTS.serif, fontSize:"0.95rem", fontWeight:700, color:"#fff", lineHeight:1.3 }}>{book.title}</span>
               <span style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", color:"rgba(255,255,255,0.65)", fontStyle:"italic" }}>{book.author}</span>
-              {book.genre && <span style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(255,255,255,0.45)", marginTop:"0.2rem" }}>{book.genre} · Notes →</span>}
+              {book.genre && <span style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(255,255,255,0.45)", marginTop:"0.2rem" }}>{book.genre} · tap to read notes</span>}
             </div>
           )}
         </div>
