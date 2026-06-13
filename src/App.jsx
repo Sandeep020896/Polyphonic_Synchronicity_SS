@@ -407,9 +407,13 @@ function MatildaPanel() {
     <div style={{ height:"100vh", overflow:"hidden", position:"relative", background:"#fff8f0", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0, backgroundImage:`radial-gradient(${COLORS.goldLight} 1px, transparent 1px)`, backgroundSize:"32px 32px", opacity:0.3 }} />
       <img
-        src={MATILDA_IMAGE}
+        src="https://pbs.twimg.com/media/DJlhdcQXoAIh3n-.jpg"
         alt="Matilda by Roald Dahl"
-        style={{ height:"100%", width:"100%", objectFit:"contain", objectPosition:"center", position:"relative", zIndex:1, maxWidth:"900px", margin:"0 auto" }}
+        style={{ height:"100%", width:"100%", objectFit:"cover", objectPosition:"center", position:"relative", zIndex:1 }}
+        onError={(e) => {
+          e.target.src = MATILDA_IMAGE;
+          e.target.style.objectFit = "contain";
+        }}
       />
     </div>
   );
@@ -420,12 +424,10 @@ function DuaPanel() {
     <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#0a0608", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0, overflow:"hidden" }}>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dua_Lipa_Glasto24_28_300624_%28314_of_545%29_%2853836769052%29_%28cropped%29.jpg/800px-Dua_Lipa_Glasto24_28_300624_%28314_of_545%29_%2853836769052%29_%28cropped%29.jpg"
-          alt="Dua Lipa at Glastonbury 2024"
-          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.45 }}
-          onError={(e) => {
-            e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg/800px-Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg";
-          }}
+          src="https://tse1.mm.bing.net/th/id/OIF.pOKGxWGzMnJk6pSVuzhOSA?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Dua Lipa"
+          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center 20%", opacity:0.55 }}
+          onError={(e) => { e.target.style.display="none"; }}
         />
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(10,6,8,0.3) 0%, rgba(10,6,8,0.65) 60%, rgba(10,6,8,0.85) 100%)" }} />
       </div>
@@ -447,7 +449,7 @@ function DuaPanel() {
 
 function RowlingPanel() {
   return (
-    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#0d0c08", display:"flex", alignItems:"center", justifyContent:"center" }}>
+    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#1c1008", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0 }}>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/J._K._Rowling_2010.jpg/800px-J._K._Rowling_2010.jpg"
@@ -458,17 +460,23 @@ function RowlingPanel() {
             e.target.onerror = () => { e.target.style.display="none"; };
           }}
         />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(13,12,8,0.4) 0%, rgba(13,12,8,0.55) 40%, rgba(13,12,8,0.88) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(160deg, rgba(60,28,8,0.72) 0%, rgba(28,16,8,0.55) 35%, rgba(18,10,5,0.82) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, backgroundImage:"repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(201,147,58,0.015) 3px, rgba(201,147,58,0.015) 4px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(139,58,42,0.03) 40px, rgba(139,58,42,0.03) 41px)" }} />
       </div>
-      <div style={{ position:"relative", zIndex:2, maxWidth:"740px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem" }}>
-        <div style={{ border:"1px solid rgba(201,147,58,0.45)", borderRadius:"100px", padding:"0.3rem 1.2rem" }}>
-          <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.gold }}>J.K. Rowling</span>
+      <div style={{ position:"relative", zIndex:2, maxWidth:"760px", textAlign:"center", padding:"3.5rem 3rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem", border:"1px solid rgba(201,147,58,0.2)", background:"rgba(28,16,8,0.45)" }}>
+        <div style={{ position:"absolute", top:"-1px", left:"50%", transform:"translateX(-50%)", background:"#1c1008", padding:"0 1rem" }}>
+          <span style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", letterSpacing:"0.22em", textTransform:"uppercase", color:COLORS.gold }}>J.K. Rowling</span>
         </div>
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.9rem, 4.5vw, 3.1rem)", fontStyle:"italic", lineHeight:1.32, color:"#fff", margin:0 }}>
-          "No story lives unless someone wants to listen. The stories we love best do live in us forever."
+        <div style={{ position:"absolute", top:"1rem", left:"1rem", width:"24px", height:"24px", borderTop:"1px solid rgba(201,147,58,0.5)", borderLeft:"1px solid rgba(201,147,58,0.5)" }} />
+        <div style={{ position:"absolute", top:"1rem", right:"1rem", width:"24px", height:"24px", borderTop:"1px solid rgba(201,147,58,0.5)", borderRight:"1px solid rgba(201,147,58,0.5)" }} />
+        <div style={{ position:"absolute", bottom:"1rem", left:"1rem", width:"24px", height:"24px", borderBottom:"1px solid rgba(201,147,58,0.5)", borderLeft:"1px solid rgba(201,147,58,0.5)" }} />
+        <div style={{ position:"absolute", bottom:"1rem", right:"1rem", width:"24px", height:"24px", borderBottom:"1px solid rgba(201,147,58,0.5)", borderRight:"1px solid rgba(201,147,58,0.5)" }} />
+        <span style={{ fontFamily:FONTS.serif, fontSize:"4rem", color:COLORS.gold, opacity:0.35, lineHeight:0.5, alignSelf:"flex-start", marginLeft:"0.5rem" }}>"</span>
+        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.7rem, 4vw, 2.8rem)", fontStyle:"italic", lineHeight:1.38, color:"#f5eedd", margin:"-1rem 0 0" }}>
+          No story lives unless someone wants to listen. The stories we love best do live in us forever.
         </p>
-        <div style={{ width:"56px", height:"2px", background:COLORS.gold }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.82rem", letterSpacing:"0.1em", color:"rgba(255,255,255,0.45)", textTransform:"uppercase", margin:0 }}>— On the power of stories</p>
+        <div style={{ width:"56px", height:"1px", background:COLORS.gold, opacity:0.7 }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", letterSpacing:"0.14em", color:"rgba(232,208,160,0.6)", textTransform:"uppercase", margin:0 }}>— On the power of stories</p>
       </div>
     </div>
   );
