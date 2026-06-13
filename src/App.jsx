@@ -24,7 +24,42 @@ const FONTS = {
   mono: "'DM Mono', monospace",
 };
 
-const GF = `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');`;
+const GF = `
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Mughal border system ── */
+.ps-section {
+  position: relative;
+}
+.ps-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #c9933a 0px, #c9933a 10px, #1a4a3a 10px, #1a4a3a 20px, #8B1A1A 20px, #8B1A1A 30px, #1a4a3a 30px, #1a4a3a 40px);
+  opacity: 0.55;
+}
+.ps-page-border {
+  position: fixed;
+  z-index: 999;
+  pointer-events: none;
+}
+.ps-page-border-left {
+  top: 0; left: 0; bottom: 0; width: 6px;
+  background: repeating-linear-gradient(180deg, #8B1A1A 0px, #8B1A1A 12px, #1a4a3a 12px, #1a4a3a 18px, #c9933a 18px, #c9933a 22px, #1a4a3a 22px, #1a4a3a 28px);
+  opacity: 0.35;
+}
+.ps-page-border-right {
+  top: 0; right: 0; bottom: 0; width: 6px;
+  background: repeating-linear-gradient(180deg, #8B1A1A 0px, #8B1A1A 12px, #1a4a3a 12px, #1a4a3a 18px, #c9933a 18px, #c9933a 22px, #1a4a3a 22px, #1a4a3a 28px);
+  opacity: 0.35;
+}
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,147,58,0.4); } 50% { box-shadow: 0 0 0 8px rgba(201,147,58,0); } }
+.splash-enter-btn { animation: pulse 2.5s infinite; }
+.splash-enter-btn:hover { background: #c9933a !important; color: #0e0b1a !important; transform: scale(1.04); }
+`
 
 const GENRES = ["Literary Fiction","Commercial Fiction","Non-Fiction","Poetry","Memoir","Translated Fiction","Plays","Short Stories"];
 const PRIZES = ["Booker Prize","Pulitzer Prize","International Booker","Nobel Prize","Man Booker","Women's Prize","Baillie Gifford"];
@@ -348,6 +383,8 @@ function SplashPage({ onEnter, fading }) {
 function MainLayout({ page, navigate, books, onBookClick }) {
   return (
     <div style={{ fontFamily: FONTS.sans, background: COLORS.parchment, color: COLORS.ink, minHeight:"100vh" }}>
+      <div className="ps-page-border ps-page-border-left" />
+      <div className="ps-page-border ps-page-border-right" />
       <Nav page={page} navigate={navigate} />
       {page === "home" && <HomePage books={books} onBookClick={onBookClick} />}
       {page === "readinglist" && <ReadingListPage books={books} onBookClick={onBookClick} />}
@@ -403,15 +440,12 @@ function MatildaPanel() {
   return (
     <div style={{ height:"100vh", overflow:"hidden", position:"relative", background:"#fdf6ee" }}>
       <img
-        src="https://tse3.mm.bing.net/th/id/OIP.nwqIUEzTrOce5rA4YiosvQHaLX?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3"
+        src={MATILDA_IMAGE}
         alt="Matilda by Roald Dahl"
-        style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center" }}
-        onError={(e) => {
-          e.target.src = MATILDA_IMAGE;
-        }}
+        style={{ position:"absolute", top:"5%", left:"5%", right:"5%", bottom:"0", width:"90%", height:"60%", objectFit:"contain", objectPosition:"top center" }}
       />
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(253,246,238,0) 30%, rgba(253,246,238,0.15) 50%, rgba(253,246,238,0.92) 72%, rgba(253,246,238,1) 100%)" }} />
-      <div style={{ position:"absolute", bottom:0, left:0, right:0, padding:"3rem 4rem 3.5rem", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center" }}>
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(253,246,238,0) 35%, rgba(253,246,238,0.05) 50%, rgba(253,246,238,0.88) 68%, rgba(253,246,238,1) 100%)" }} />
+      <div style={{ position:"absolute", bottom:0, left:0, right:0, padding:"2rem 4rem 3rem", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center" }}>
         <div style={{ width:"40px", height:"2px", background:COLORS.gold, marginBottom:"1.5rem" }} />
         <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1rem, 2vw, 1.45rem)", lineHeight:1.72, color:COLORS.ink, margin:"0 0 0.85rem", fontStyle:"italic", maxWidth:"660px" }}>
           "So Matilda's strong young mind continued to grow, nurtured by the voices of all those authors who had sent their books out into the world like ships on the sea. These books gave Matilda a hopeful and comforting message:
@@ -519,7 +553,7 @@ function MonthSection({ group, onBookClick }) {
   };
   const autoDesc = buildDesc();
   return (
-    <section style={{ padding:"6rem 2.5rem", maxWidth:"1200px", margin:"0 auto", borderBottom:`1px solid ${COLORS.border}` }}>
+    <section className="ps-section" style={{ padding:"6rem 2.5rem", maxWidth:"1200px", margin:"0 auto", borderBottom:`1px solid ${COLORS.border}` }}>
       <div style={{ marginBottom:"4rem", textAlign:"center" }}>
         <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.75rem" }}>
           {done > 0 || reading > 0 ? "Current Reads" : "Coming Up"}
@@ -527,10 +561,7 @@ function MonthSection({ group, onBookClick }) {
         <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3.2rem)", fontWeight:700, margin:"0 0 1.25rem", color:COLORS.ink }}>
           Books for {month}{year ? ` ${year}` : ""}
         </h2>
-        <div style={{ width:"48px", height:"1px", background:COLORS.gold, margin:"0 auto 1.25rem" }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"1rem", color:COLORS.muted, maxWidth:"600px", lineHeight:1.75, margin:"0 auto" }}>
-          {autoDesc}
-        </p>
+        <div style={{ width:"48px", height:"1px", background:COLORS.gold, margin:"0 auto" }} />
       </div>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))", gap:"1.75rem" }}>
         {books.map(book => <BookCard key={book.id} book={book} meta={statusMeta} onClick={() => onBookClick(book)} />)}
@@ -712,7 +743,7 @@ function ReadingListPage({ books, onBookClick }) {
   ];
 
   return (
-    <div style={{ maxWidth:"1200px", margin:"0 auto", padding:"3.5rem 2.5rem" }}>
+    <div className="ps-section" style={{ maxWidth:"1200px", margin:"0 auto", padding:"3.5rem 2.5rem" }}>
       <div style={{ textAlign:"center", marginBottom:"3rem" }}>
         <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.75rem" }}>2026 Reading Journey</p>
         <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3rem)", fontWeight:700, margin:"0 0 1rem", color:COLORS.ink }}>Reading List</h2>
@@ -853,7 +884,7 @@ function BookClubPage({ books, onBookClick }) {
   }, {});
 
   return (
-    <div style={{ maxWidth:"960px", margin:"0 auto", padding:"5rem 2.5rem" }}>
+    <div className="ps-section" style={{ maxWidth:"960px", margin:"0 auto", padding:"5rem 2.5rem" }}>
       <div style={{ marginBottom:"4rem", borderBottom:`1px solid ${COLORS.border}`, paddingBottom:"3rem", textAlign:"center" }}>
         <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.75rem" }}>A Shared Reading Life</p>
         <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3rem)", fontWeight:700, margin:"0 0 1.25rem", color:COLORS.ink }}>Sandeep & Shoba Book Club</h2>
