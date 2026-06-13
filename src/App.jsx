@@ -409,7 +409,6 @@ function Nav({ page, navigate }) {
 
 // ─── HOME PAGE ────────────────────────────────────────────────────────────────
 function HomePage({ books, onBookClick }) {
-  // Group books by month+year - derive dynamically from database
   const monthGroups = {};
   books.forEach(b => {
     if (!b.month) return;
@@ -417,7 +416,6 @@ function HomePage({ books, onBookClick }) {
     if (!monthGroups[key]) monthGroups[key] = { month: b.month, year: b.year || "", books: [] };
     monthGroups[key].books.push(b);
   });
-  // Sort groups: current year first, then by month order
   const MONTH_ORDER = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   const sortedGroups = Object.values(monthGroups).sort((a, b) => {
     if (a.year !== b.year) return (a.year || 9999) - (b.year || 9999);
@@ -427,7 +425,6 @@ function HomePage({ books, onBookClick }) {
     <div>
       <MatildaPanel />
       <DuaPanel />
-      <RowlingPanel />
       {sortedGroups.map(group => (
         <MonthSection key={`${group.month}-${group.year}`} group={group} onBookClick={onBookClick} />
       ))}
@@ -438,26 +435,13 @@ function HomePage({ books, onBookClick }) {
 // ─── HERO PANELS ──────────────────────────────────────────────────────────────
 function MatildaPanel() {
   return (
-    <div style={{ height:"100vh", overflow:"hidden", position:"relative", background:"#fdf6ee" }}>
+    <div style={{ height:"100vh", overflow:"hidden", position:"relative", background:"#fdf6ee", display:"flex", alignItems:"center", justifyContent:"center" }}>
+      <div style={{ position:"absolute", inset:0, backgroundImage:`radial-gradient(${COLORS.goldLight} 1px, transparent 1px)`, backgroundSize:"28px 28px", opacity:0.22 }} />
       <img
         src={MATILDA_IMAGE}
         alt="Matilda by Roald Dahl"
-        style={{ position:"absolute", top:"5%", left:"5%", right:"5%", bottom:"0", width:"90%", height:"60%", objectFit:"contain", objectPosition:"top center" }}
+        style={{ height:"95%", width:"auto", maxWidth:"100%", objectFit:"contain", position:"relative", zIndex:1 }}
       />
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(253,246,238,0) 35%, rgba(253,246,238,0.05) 50%, rgba(253,246,238,0.88) 68%, rgba(253,246,238,1) 100%)" }} />
-      <div style={{ position:"absolute", bottom:0, left:0, right:0, padding:"2rem 4rem 3rem", display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center" }}>
-        <div style={{ width:"40px", height:"2px", background:COLORS.gold, marginBottom:"1.5rem" }} />
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1rem, 2vw, 1.45rem)", lineHeight:1.72, color:COLORS.ink, margin:"0 0 0.85rem", fontStyle:"italic", maxWidth:"660px" }}>
-          "So Matilda's strong young mind continued to grow, nurtured by the voices of all those authors who had sent their books out into the world like ships on the sea. These books gave Matilda a hopeful and comforting message:
-        </p>
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.2rem, 2.5vw, 1.7rem)", fontWeight:700, color:COLORS.ink, margin:"0 0 1.5rem", fontStyle:"normal" }}>
-          You are not alone."
-        </p>
-        <div style={{ width:"36px", height:"1px", background:COLORS.border, marginBottom:"1rem" }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.muted, margin:0 }}>
-          Roald Dahl, Matilda
-        </p>
-      </div>
     </div>
   );
 }
@@ -490,36 +474,6 @@ function DuaPanel() {
   );
 }
 
-function RowlingPanel() {
-  return (
-    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#8B1A1A", display:"flex", alignItems:"center", justifyContent:"center" }}>
-      <div style={{ position:"absolute", inset:0 }}>
-        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle at 20% 50%, rgba(26,74,58,0.35) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(26,74,58,0.25) 0%, transparent 45%)" }} />
-        <div style={{ position:"absolute", inset:0, backgroundImage:"repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(201,147,58,0.06) 38px, rgba(201,147,58,0.06) 39px), repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(201,147,58,0.04) 38px, rgba(201,147,58,0.04) 39px)" }} />
-        <div style={{ position:"absolute", top:0, left:0, right:0, height:"10px", background:"#1a4a3a" }} />
-        <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"10px", background:"#1a4a3a" }} />
-        <div style={{ position:"absolute", top:"10px", left:0, right:0, height:"6px", backgroundImage:"repeating-linear-gradient(90deg, #c9933a 0px, #c9933a 8px, #2a6a5a 8px, #2a6a5a 16px)", opacity:0.8 }} />
-        <div style={{ position:"absolute", bottom:"10px", left:0, right:0, height:"6px", backgroundImage:"repeating-linear-gradient(90deg, #c9933a 0px, #c9933a 8px, #2a6a5a 8px, #2a6a5a 16px)", opacity:0.8 }} />
-        <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at center, rgba(139,26,26,0.0) 30%, rgba(80,10,10,0.55) 100%)" }} />
-      </div>
-      <div style={{ position:"relative", zIndex:2, maxWidth:"760px", textAlign:"center", padding:"3.5rem 3rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem", border:"1px solid rgba(201,147,58,0.35)", background:"rgba(100,15,15,0.55)" }}>
-        <div style={{ position:"absolute", top:"-1px", left:"50%", transform:"translateX(-50%)", background:"#8B1A1A", padding:"0 1rem" }}>
-          <span style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", letterSpacing:"0.22em", textTransform:"uppercase", color:COLORS.gold }}>J.K. Rowling</span>
-        </div>
-        <div style={{ position:"absolute", top:"1rem", left:"1rem", width:"24px", height:"24px", borderTop:"1px solid rgba(201,147,58,0.5)", borderLeft:"1px solid rgba(201,147,58,0.5)" }} />
-        <div style={{ position:"absolute", top:"1rem", right:"1rem", width:"24px", height:"24px", borderTop:"1px solid rgba(201,147,58,0.5)", borderRight:"1px solid rgba(201,147,58,0.5)" }} />
-        <div style={{ position:"absolute", bottom:"1rem", left:"1rem", width:"24px", height:"24px", borderBottom:"1px solid rgba(201,147,58,0.5)", borderLeft:"1px solid rgba(201,147,58,0.5)" }} />
-        <div style={{ position:"absolute", bottom:"1rem", right:"1rem", width:"24px", height:"24px", borderBottom:"1px solid rgba(201,147,58,0.5)", borderRight:"1px solid rgba(201,147,58,0.5)" }} />
-        <span style={{ fontFamily:FONTS.serif, fontSize:"4rem", color:COLORS.gold, opacity:0.35, lineHeight:0.5, alignSelf:"flex-start", marginLeft:"0.5rem" }}>"</span>
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.7rem, 4vw, 2.8rem)", fontStyle:"italic", lineHeight:1.38, color:"#fdf0d5", margin:"-1rem 0 0" }}>
-          No story lives unless someone wants to listen. The stories we love best do live in us forever.
-        </p>
-        <div style={{ width:"56px", height:"1px", background:COLORS.gold, opacity:0.7 }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", letterSpacing:"0.14em", color:"rgba(232,208,160,0.6)", textTransform:"uppercase", margin:0 }}>— On the power of stories</p>
-      </div>
-    </div>
-  );
-}
 
 // ─── JUNE SECTION ─────────────────────────────────────────────────────────────
 function MonthSection({ group, onBookClick }) {
@@ -640,14 +594,21 @@ function BookDetail({ book, onBack }) {
     <div style={{ fontFamily:FONTS.sans, background:COLORS.parchment, minHeight:"100vh" }}>
       <style>{GF}</style>
       <div style={{ position:"sticky", top:0, zIndex:50 }}>
-        <div style={{ background:"rgba(250,247,242,0.97)", borderBottom:`1px solid ${COLORS.border}`, padding:"0.6rem 2.5rem", display:"flex", alignItems:"center", justifyContent:"space-between", backdropFilter:"blur(8px)" }}>
-          <button onClick={onBack} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.08em", textTransform:"uppercase", color:COLORS.muted, padding:0 }}>← Back</button>
-          <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.08em", color:COLORS.muted, opacity:0.6 }}>{book.title}</span>
-        </div>
-        <div style={{ background:"#8B1A1A", borderBottom:"2px solid #1a4a3a", height:"6px", backgroundImage:"repeating-linear-gradient(90deg, #c9933a 0px, #c9933a 8px, #2a6a5a 8px, #2a6a5a 16px)" }} />
+        <nav style={{ background:"#8B1A1A", borderBottom:"2px solid #1a4a3a", padding:"0.65rem 2.5rem", display:"flex", alignItems:"center", gap:"1.5rem" }}>
+          <button onClick={onBack} style={{ background:"none", border:"1px solid rgba(242,200,64,0.5)", borderRadius:"2px", cursor:"pointer", fontFamily:"'Yatra One', Georgia, serif", fontSize:"0.85rem", letterSpacing:"0.08em", color:"rgba(240,218,168,0.8)", padding:"0.25rem 0.9rem", transition:"all 0.2s", flexShrink:0 }}>← Back</button>
+          <div style={{ flex:1, overflow:"hidden" }}>
+            <svg viewBox="0 0 600 38" xmlns="http://www.w3.org/2000/svg" style={{ width:"100%", maxWidth:"700px", height:"38px", display:"block", margin:"0 auto" }}>
+              <g fill="#1a4a3a" opacity="0.7">
+                {[...Array(50)].map((_,i) => { const x = i*12; return x < 598 ? <polygon key={i} points={`${x},0 ${x+5},0 ${x+3},5`}/> : null; })}
+                {[...Array(50)].map((_,i) => { const x = i*12; return x < 598 ? <polygon key={"b"+i} points={`${x},38 ${x+5},38 ${x+3},33`}/> : null; })}
+              </g>
+              <text x="300" y="26" fontFamily="'Yatra One', Georgia, serif" fontSize="18" fill="#f2c840" textAnchor="middle" letterSpacing="2">{book.title}</text>
+            </svg>
+          </div>
+        </nav>
       </div>
 
-      <div style={{ maxWidth:"900px", margin:"0 auto", padding:"3.5rem 2.5rem" }}>
+      <div style={{ maxWidth:"1100px", margin:"0 auto", padding:"3.5rem 3.5rem" }}>
         <div style={{ display:"grid", gridTemplateColumns:"180px 1fr", gap:"3rem", marginBottom:"3.5rem", alignItems:"start" }}>
           <div style={{ aspectRatio:"2/3", background:COLORS.cream, borderRadius:"3px", overflow:"hidden", border:`1px solid ${COLORS.border}`, boxShadow:"0 4px 24px rgba(0,0,0,0.08)" }}>
             {book.cover && !imgErr
@@ -684,24 +645,26 @@ function BookDetail({ book, onBack }) {
           </div>
         </div>
 
-        <div style={{ maxWidth:"680px" }}>
-          {tab === "initial" && (
-            <textarea
-              value={initialText}
-              onChange={e => setInitialText(e.target.value)}
-              placeholder="Paste or type your initial notes here…"
-              style={{ width:"100%", minHeight:"220px", fontFamily:FONTS.serif, fontSize:"1.05rem", lineHeight:1.85, color:COLORS.ink, background:"transparent", border:"none", borderBottom:`1px solid ${COLORS.border}`, outline:"none", resize:"vertical", padding:"0.5rem 0", fontStyle: initialText ? "normal" : "italic", boxSizing:"border-box" }}
-            />
-          )}
-          {tab === "final" && (
-            <textarea
-              value={finalText}
-              onChange={e => setFinalText(e.target.value)}
-              placeholder="Write your final review here once you've finished…"
-              style={{ width:"100%", minHeight:"220px", fontFamily:FONTS.serif, fontSize:"1.05rem", lineHeight:1.85, color:COLORS.ink, background:"transparent", border:"none", borderBottom:`1px solid ${COLORS.border}`, outline:"none", resize:"vertical", padding:"0.5rem 0", boxSizing:"border-box" }}
-            />
-          )}
-          <p style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", color:COLORS.muted, marginTop:"0.75rem", letterSpacing:"0.05em" }}>
+        <div style={{ maxWidth:"100%", marginTop:"1rem" }}>
+          <div style={{ background:"#fff", border:`1px solid ${COLORS.border}`, borderRadius:"4px", padding:"0.5rem", boxShadow:"inset 0 1px 4px rgba(0,0,0,0.04)" }}>
+            {tab === "initial" && (
+              <textarea
+                value={initialText}
+                onChange={e => setInitialText(e.target.value)}
+                placeholder="Paste or type your initial notes here — first impressions, passages that caught you, questions you're sitting with…"
+                style={{ width:"100%", minHeight:"340px", fontFamily:FONTS.serif, fontSize:"1.08rem", lineHeight:1.9, color:COLORS.ink, background:"transparent", border:"none", outline:"none", resize:"vertical", padding:"1.25rem 1.5rem", boxSizing:"border-box", fontStyle: initialText ? "normal" : "italic" }}
+              />
+            )}
+            {tab === "final" && (
+              <textarea
+                value={finalText}
+                onChange={e => setFinalText(e.target.value)}
+                placeholder="Your final verdict — what landed, what didn't, what you'll carry with you…"
+                style={{ width:"100%", minHeight:"340px", fontFamily:FONTS.serif, fontSize:"1.08rem", lineHeight:1.9, color:COLORS.ink, background:"transparent", border:"none", outline:"none", resize:"vertical", padding:"1.25rem 1.5rem", boxSizing:"border-box" }}
+              />
+            )}
+          </div>
+          <p style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", color:COLORS.muted, marginTop:"0.65rem", letterSpacing:"0.05em" }}>
             Press Save Notes to persist your changes across sessions.
           </p>
         </div>
@@ -914,11 +877,11 @@ function BookClubPage({ books, onBookClick }) {
                   onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.border; e.currentTarget.style.transform = "none"; }}
                 >
                   {hasImg && (
-                    <div style={{ height:"180px", overflow:"hidden", background:COLORS.cream }}>
+                    <div style={{ aspectRatio:"2/3", overflow:"hidden", background:COLORS.cream, width:"100%" }}>
                       <img
                         src={book.cover}
                         alt={book.title}
-                        style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center" }}
+                        style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", display:"block" }}
                         onError={() => setImgErr(prev => ({ ...prev, [book.id || book.title]: true }))}
                       />
                     </div>
