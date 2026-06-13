@@ -33,14 +33,14 @@ const STATUSES = ["upcoming","reading","done"];
 const ADMIN_PW = "Lavin1105!";
 
 const DEFAULT_BOOKS = [
-  { id: "b1", title: "Before the Coffee Gets Cold", author: "Toshikazu Kawaguchi", status: "reading", quarter: "June", genre: "Translated Fiction", prizes: [], rating: "", tag: "", initialComments: "The premise could so easily be twee. It isn't. There's something about the constraint — you can't change anything, you can only feel it fully — that makes it profound rather than sentimental.", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781529029581-L.jpg" },
-  { id: "b2", title: "The Vegetarian", author: "Han Kang", status: "reading", quarter: "June", genre: "Translated Fiction", prizes: ["Nobel Prize"], rating: "", tag: "", initialComments: "Starting this one with some trepidation after The White Book. Han Kang writes silence the way Beckett does — as its own kind of speech.", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781846276033-L.jpg" },
-  { id: "b3", title: "Trust", author: "Hernán Diaz", status: "done", quarter: "June", genre: "Literary Fiction", prizes: ["Pulitzer Prize"], rating: "5/5", tag: "", initialComments: "", finalReview: "A perfect novel. The architecture is the argument — four versions of the same story, each revision an act of power. Diaz understands that in America, the rich don't just own things; they own the narrative.", cover: "https://covers.openlibrary.org/b/isbn/9781529920048-L.jpg" },
-  { id: "b4", title: "Mother Mary Comes to Me", author: "Mary Karr", status: "done", quarter: "June", genre: "Poetry", prizes: [], rating: "3.75/5", tag: "", initialComments: "", finalReview: "Karr's voice is irreducibly herself — that fierce Texan directness fused with a convert's wonder. Some poems land like revelations; others feel private in a way that keeps the reader at arm's length.", cover: "https://covers.openlibrary.org/b/isbn/9780062905574-L.jpg" },
-  { id: "b5", title: "Flesh", author: "David Szalay", status: "done", quarter: "June", genre: "Literary Fiction", prizes: ["Booker Prize"], rating: "4.5/5", tag: "", initialComments: "", finalReview: "The Booker was deserved. Szalay has a gift for the unspoken — whole lives compressed into a single encounter, a gesture, a failure to speak. Dark, but a joy to read.", cover: "https://covers.openlibrary.org/b/isbn/9780224107440-L.jpg" },
-  { id: "b6", title: "Tomorrow, Tomorrow, Tomorrow", author: "Gabrielle Zevin", status: "upcoming", quarter: "July", genre: "Literary Fiction", prizes: [], rating: "", tag: "", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9780593321201-L.jpg" },
-  { id: "b7", title: "The Nights Are Quiet in Tehran", author: "Shida Bazyar", status: "upcoming", quarter: "July", genre: "Translated Fiction", prizes: [], rating: "", tag: "S&S Book Club", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781639731343-L.jpg" },
-  { id: "b8", title: "On the Road", author: "Jack Kerouac", status: "upcoming", quarter: "July", genre: "Literary Fiction", prizes: [], rating: "", tag: "", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9780140042597-L.jpg" },
+  { id: "b1", title: "Before the Coffee Gets Cold", author: "Toshikazu Kawaguchi", status: "reading", quarter: "June", month: "June", year: 2026, genre: "Translated Fiction", prizes: [], rating: "", tag: "", initialComments: "The premise could so easily be twee. It isn't. There's something about the constraint — you can't change anything, you can only feel it fully — that makes it profound rather than sentimental.", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781529029581-L.jpg" },
+  { id: "b2", title: "The Vegetarian", author: "Han Kang", status: "reading", quarter: "June", month: "June", year: 2026, genre: "Translated Fiction", prizes: ["Nobel Prize"], rating: "", tag: "", initialComments: "Starting this one with some trepidation after The White Book. Han Kang writes silence the way Beckett does — as its own kind of speech.", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781846276033-L.jpg" },
+  { id: "b3", title: "Trust", author: "Hernán Diaz", status: "done", quarter: "June", month: "June", year: 2026, genre: "Literary Fiction", prizes: ["Pulitzer Prize"], rating: "5/5", tag: "", initialComments: "", finalReview: "A perfect novel. The architecture is the argument — four versions of the same story, each revision an act of power. Diaz understands that in America, the rich don't just own things; they own the narrative.", cover: "https://covers.openlibrary.org/b/isbn/9781529920048-L.jpg" },
+  { id: "b4", title: "Mother Mary Comes to Me", author: "Mary Karr", status: "done", quarter: "June", month: "June", year: 2026, genre: "Poetry", prizes: [], rating: "3.75/5", tag: "", initialComments: "", finalReview: "Karr's voice is irreducibly herself — that fierce Texan directness fused with a convert's wonder. Some poems land like revelations; others feel private in a way that keeps the reader at arm's length.", cover: "https://covers.openlibrary.org/b/isbn/9780062905574-L.jpg" },
+  { id: "b5", title: "Flesh", author: "David Szalay", status: "done", quarter: "June", month: "June", year: 2026, genre: "Literary Fiction", prizes: ["Booker Prize"], rating: "4.5/5", tag: "", initialComments: "", finalReview: "The Booker was deserved. Szalay has a gift for the unspoken — whole lives compressed into a single encounter, a gesture, a failure to speak. Dark, but a joy to read.", cover: "https://covers.openlibrary.org/b/isbn/9780224107440-L.jpg" },
+  { id: "b6", month: "July", year: 2026, title: "Tomorrow, Tomorrow, Tomorrow", author: "Gabrielle Zevin", status: "upcoming", quarter: "July", genre: "Literary Fiction", prizes: [], rating: "", tag: "", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9780593321201-L.jpg" },
+  { id: "b7", month: "July", year: 2026, title: "The Nights Are Quiet in Tehran", author: "Shida Bazyar", status: "upcoming", quarter: "July", genre: "Translated Fiction", prizes: [], rating: "", tag: "S&S Book Club", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781639731343-L.jpg" },
+  { id: "b8", month: "July", year: 2026, title: "On the Road", author: "Jack Kerouac", status: "upcoming", quarter: "July", genre: "Literary Fiction", prizes: [], rating: "", tag: "", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9780140042597-L.jpg" },
   { id: "b9", title: "Heartlamp", author: "Banu Mushtaq", status: "upcoming", quarter: "Q3", genre: "Translated Fiction", prizes: ["International Booker"], rating: "", tag: "International Booker", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9781803090283-L.jpg" },
   { id: "b10", title: "Hotel du Lac", author: "Anita Brookner", status: "upcoming", quarter: "Q3", genre: "Literary Fiction", prizes: ["Booker Prize"], rating: "", tag: "Classic", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9780679722991-L.jpg" },
   { id: "b11", title: "The Count of Monte Cristo", author: "Alexandre Dumas", status: "upcoming", quarter: "Q3", genre: "Literary Fiction", prizes: [], rating: "", tag: "Big Read", initialComments: "", finalReview: "", cover: "https://covers.openlibrary.org/b/isbn/9780140449266-L.jpg" },
@@ -87,7 +87,8 @@ async function saveBooks(books) {
 
 // ─── ROOT ────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("splash");
+  const [splashDone, setSplashDone] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
   const [books, setBooks] = useState(DEFAULT_BOOKS);
   const [loaded, setLoaded] = useState(false);
@@ -110,10 +111,17 @@ export default function App() {
     </div>
   );
 
+  const handleEnter = () => {
+    setSplashDone(true);
+    setTimeout(() => navigate("home"), 600);
+  };
+
   return (
     <>
       <style>{GF}</style>
-      {page === "bookdetail" && selectedBook ? (
+      {page === "splash" ? (
+        <SplashPage onEnter={handleEnter} fading={splashDone} />
+      ) : page === "bookdetail" && selectedBook ? (
         <BookDetail book={selectedBook} onBack={() => navigate("home")} />
       ) : page === "admin" ? (
         <AdminPage books={books} onSave={handleSaveBooks} onBack={() => navigate("home")} />
@@ -124,14 +132,223 @@ export default function App() {
   );
 }
 
+// ─── SPLASH PAGE ─────────────────────────────────────────────────────────────
+function SplashPage({ onEnter, fading }) {
+  return (
+    <div style={{
+      position: "relative",
+      width: "100vw",
+      minHeight: "100vh",
+      background: "#8B1A1A",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      overflow: "hidden",
+      opacity: fading ? 0 : 1,
+      transition: "opacity 0.6s ease",
+    }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+        @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,147,58,0.4); } 50% { box-shadow: 0 0 0 8px rgba(201,147,58,0); } }
+        .splash-enter-btn { animation: pulse 2.5s infinite; }
+        .splash-enter-btn:hover { background: #c9933a !important; color: #0e0b1a !important; transform: scale(1.04); }
+      `}</style>
+
+      <svg
+        viewBox="0 0 680 520"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "100%", maxWidth: "900px", height: "auto", display: "block" }}
+        aria-label="Polyphonic Synchronicity"
+      >
+        <rect width="680" height="520" fill="#8B1A1A"/>
+        <rect x="8" y="8" width="664" height="504" fill="none" stroke="#1a4a3a" stroke-width="3"/>
+        <rect x="13" y="13" width="654" height="494" fill="none" stroke="#c9933a" stroke-width="1"/>
+
+        <g fill="#1a4a3a">
+          {[22,36,50,64,78,92,106,120,134,148,162,176,190,204,218,232,246,260,274,288,302,316,330,344,358,372,386,400,414,428,442,456,470,484,498,512,526,540,554,568,582,596,610,624,638,652].map(x => (
+            <polygon key={x} points={`${x},22 ${x+6},13 ${x+12},22`}/>
+          ))}
+        </g>
+        <g fill="#1a4a3a">
+          {[22,50,78,106,134,162,190,218,246,274,302,330,358,386,414,442,470,498,526,554,582,610,638,652].map(x => (
+            <polygon key={x} points={`${x},498 ${x+6},507 ${x+12},498`}/>
+          ))}
+        </g>
+
+        <rect x="22" y="30" width="636" height="14" fill="#1a4a3a" opacity="0.7"/>
+        <rect x="22" y="476" width="636" height="14" fill="#1a4a3a" opacity="0.7"/>
+
+        <g opacity="0.88">
+          {[28,40,52,64,76,88,100,112,124,136,148,160,172,184,196,208,220,232,244,256,268,280,292,304,316,328,340,352,364,376,388,400,412,424,436,448,460,472,484,496,508,520,532,544,556,568,580,592,604,616,628,640,652].map((x,i) => (
+            <rect key={x} x={x} y="32" width="8" height="10" rx="1" fill={i%3===0 ? "#c9933a" : "#2a6a5a"}/>
+          ))}
+        </g>
+
+        <g fill="#1a4a3a" opacity="0.28">
+          <polygon points="13,30 22,36 13,42"/>
+          <polygon points="13,56 22,62 13,68"/>
+          <polygon points="13,84 22,90 13,96"/>
+          <polygon points="13,112 22,118 13,124"/>
+          <polygon points="13,140 22,146 13,152"/>
+          <polygon points="13,168 22,174 13,180"/>
+          <polygon points="667,30 658,36 667,42"/>
+          <polygon points="667,56 658,62 667,68"/>
+          <polygon points="667,84 658,90 667,96"/>
+          <polygon points="667,112 658,118 667,124"/>
+          <polygon points="667,140 658,146 667,152"/>
+          <polygon points="667,168 658,174 667,180"/>
+          <polygon points="13,360 22,366 13,372"/>
+          <polygon points="13,390 22,396 13,402"/>
+          <polygon points="13,420 22,426 13,432"/>
+          <polygon points="13,450 22,456 13,462"/>
+          <polygon points="13,478 22,484 13,490"/>
+          <polygon points="667,360 658,366 667,372"/>
+          <polygon points="667,390 658,396 667,402"/>
+          <polygon points="667,420 658,426 667,432"/>
+          <polygon points="667,450 658,456 667,462"/>
+          <polygon points="667,478 658,484 667,490"/>
+        </g>
+
+        <g opacity="0.15" fill="none" stroke="#c9933a" stroke-width="0.6">
+          <circle cx="340" cy="260" r="130"/>
+          <circle cx="340" cy="260" r="148"/>
+        </g>
+
+        <g opacity="0.22" fill="none" stroke="#c9933a" stroke-width="0.7">
+          <path d="M 200 430 Q 210 415 220 420 Q 218 405 228 408 Q 226 392 236 398 Q 234 378 244 386"/>
+          <path d="M 215 420 Q 225 408 230 413"/>
+          <path d="M 230 413 Q 240 400 246 406"/>
+          <circle cx="205" cy="435" r="4" fill="#c9933a" stroke="none"/>
+          <circle cx="222" cy="427" r="3" fill="#c9933a" stroke="none"/>
+          <path d="M 480 430 Q 470 415 460 420 Q 462 405 452 408 Q 454 392 444 398 Q 446 378 436 386"/>
+          <path d="M 465 420 Q 455 408 450 413"/>
+          <path d="M 450 413 Q 440 400 434 406"/>
+          <circle cx="475" cy="435" r="4" fill="#c9933a" stroke="none"/>
+          <circle cx="458" cy="427" r="3" fill="#c9933a" stroke="none"/>
+        </g>
+
+        <g opacity="0.25">
+          <ellipse cx="125" cy="395" rx="13" ry="9" fill="#c9933a"/>
+          <path d="M 114 393 Q 112 381 116 375 Q 120 368 125 372 Q 130 368 134 375 Q 138 381 136 393" fill="#1a4a3a"/>
+          <circle cx="117" cy="377" r="2.5" fill="#c9933a"/>
+          <circle cx="133" cy="377" r="2.5" fill="#c9933a"/>
+          <path d="M 125 395 L 112 411 Q 110 416 114 416 Q 116 416 117 412 L 125 401 L 133 412 Q 134 416 136 416 Q 140 416 138 411 Z" fill="#1a4a3a"/>
+          <path d="M 125 401 Q 104 413 93 425" fill="none" stroke="#1a4a3a" stroke-width="1.5"/>
+          <path d="M 125 401 Q 146 413 157 425" fill="none" stroke="#1a4a3a" stroke-width="1.5"/>
+          <ellipse cx="555" cy="395" rx="13" ry="9" fill="#c9933a"/>
+          <path d="M 544 393 Q 542 381 546 375 Q 550 368 555 372 Q 560 368 564 375 Q 568 381 566 393" fill="#1a4a3a"/>
+          <circle cx="547" cy="377" r="2.5" fill="#c9933a"/>
+          <circle cx="563" cy="377" r="2.5" fill="#c9933a"/>
+          <path d="M 555 395 L 542 411 Q 540 416 544 416 Q 546 416 547 412 L 555 401 L 563 412 Q 564 416 566 416 Q 570 416 568 411 Z" fill="#1a4a3a"/>
+          <path d="M 555 401 Q 534 413 523 425" fill="none" stroke="#1a4a3a" stroke-width="1.5"/>
+          <path d="M 555 401 Q 576 413 587 425" fill="none" stroke="#1a4a3a" stroke-width="1.5"/>
+        </g>
+
+        <g opacity="0.2" fill="#1a3a6a">
+          <path d="M 60 450 Q 80 435 100 450 Q 120 465 140 450 Q 160 435 180 450 Q 200 465 220 450 Q 240 435 260 450 Q 280 465 300 450 Q 320 435 340 450 Q 360 465 380 450 Q 400 435 420 450 Q 440 465 460 450 Q 480 435 500 450 Q 520 465 540 450 Q 560 435 580 450 Q 600 465 620 450 L 620 475 L 60 475 Z"/>
+        </g>
+        <g opacity="0.16" fill="#c9933a">
+          {[100,160,220,280,340,400,460,520,580].map(x => (
+            <ellipse key={x} cx={x} cy="460" rx="8" ry="5"/>
+          ))}
+        </g>
+
+        <g opacity="0.20" fill="#1a4a3a">
+          <ellipse cx="108" cy="345" rx="19" ry="30"/>
+          <ellipse cx="108" cy="315" rx="15" ry="22"/>
+          <rect x="105" y="343" width="6" height="22" fill="#5a3a1a"/>
+          <ellipse cx="572" cy="345" rx="19" ry="30"/>
+          <ellipse cx="572" cy="315" rx="15" ry="22"/>
+          <rect x="569" y="343" width="6" height="22" fill="#5a3a1a"/>
+        </g>
+
+        <line x1="60" y1="218" x2="620" y2="218" stroke="#c9933a" stroke-width="0.4" opacity="0.35"/>
+        <line x1="60" y1="223" x2="620" y2="223" stroke="#1a4a3a" stroke-width="0.7" opacity="0.45"/>
+        <line x1="60" y1="228" x2="620" y2="228" stroke="#c9933a" stroke-width="0.4" opacity="0.35"/>
+
+        <text x="340" y="112"
+          fontFamily="'Yatra One', serif"
+          fontSize="13"
+          fill="#e8c876"
+          textAnchor="middle"
+          letterSpacing="5"
+          opacity="0.65">पॉलिफ़ोनिक सिन्क्रोनिसिटी</text>
+
+        <line x1="90" y1="122" x2="250" y2="122" stroke="#c9933a" stroke-width="0.5" opacity="0.5"/>
+        <line x1="430" y1="122" x2="590" y2="122" stroke="#c9933a" stroke-width="0.5" opacity="0.5"/>
+        <circle cx="340" cy="122" r="3" fill="#c9933a" opacity="0.6"/>
+
+        <text x="340" y="200"
+          fontFamily="'Yatra One', serif"
+          fontSize="72"
+          fill="#f2c840"
+          textAnchor="middle"
+          letterSpacing="1">Polyphonic</text>
+
+        <line x1="65" y1="240" x2="218" y2="240" stroke="#c9933a" stroke-width="0.8" opacity="0.6"/>
+        <line x1="462" y1="240" x2="615" y2="240" stroke="#c9933a" stroke-width="0.8" opacity="0.6"/>
+        <polygon points="340,232 346,240 340,248 334,240" fill="#c9933a" opacity="0.7"/>
+        <circle cx="228" cy="240" r="3" fill="#c9933a" opacity="0.6"/>
+        <circle cx="452" cy="240" r="3" fill="#c9933a" opacity="0.6"/>
+
+        <text x="340" y="318"
+          fontFamily="'Yatra One', serif"
+          fontSize="56"
+          fill="#e07820"
+          textAnchor="middle"
+          letterSpacing="5">Synchronicity</text>
+
+        <line x1="65" y1="350" x2="195" y2="350" stroke="#c9933a" stroke-width="0.5" opacity="0.45"/>
+        <line x1="485" y1="350" x2="615" y2="350" stroke="#c9933a" stroke-width="0.5" opacity="0.45"/>
+        <circle cx="340" cy="350" r="4" fill="#c9933a" opacity="0.5"/>
+        <circle cx="205" cy="350" r="2" fill="#c9933a" opacity="0.4"/>
+        <circle cx="475" cy="350" r="2" fill="#c9933a" opacity="0.4"/>
+
+        <text x="340" y="380"
+          fontFamily="Georgia, serif"
+          fontSize="10"
+          fill="#e8c876"
+          textAnchor="middle"
+          letterSpacing="6"
+          opacity="0.55">✦  A BOOK AND CULTURE JOURNAL  ✦</text>
+      </svg>
+
+      <button
+        onClick={onEnter}
+        className="splash-enter-btn"
+        style={{
+          marginTop: "2rem",
+          marginBottom: "2.5rem",
+          fontFamily: "'Yatra One', Georgia, serif",
+          fontSize: "0.95rem",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: "#f2c840",
+          background: "transparent",
+          border: "1px solid #c9933a",
+          padding: "0.85rem 3rem",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          animation: "fadeUp 1.2s ease 0.8s both",
+        }}
+      >
+        Enter
+      </button>
+    </div>
+  );
+}
+
 // ─── MAIN LAYOUT ─────────────────────────────────────────────────────────────
 function MainLayout({ page, navigate, books, onBookClick }) {
   return (
     <div style={{ fontFamily: FONTS.sans, background: COLORS.parchment, color: COLORS.ink, minHeight:"100vh" }}>
       <Nav page={page} navigate={navigate} />
+      <MughalBanner onClick={() => navigate("home")} />
       {page === "home" && <HomePage books={books} onBookClick={onBookClick} />}
-      {page === "readinglist" && <ReadingListPage books={books} />}
-      {page === "bookclub" && <BookClubPage />}
+      {page === "readinglist" && <ReadingListPage books={books} onBookClick={onBookClick} />}
+      {page === "bookclub" && <BookClubPage books={books} onBookClick={onBookClick} />}
     </div>
   );
 }
@@ -139,15 +356,14 @@ function MainLayout({ page, navigate, books, onBookClick }) {
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 function Nav({ page, navigate }) {
   return (
-    <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(250,247,242,0.97)", borderBottom:`1px solid ${COLORS.border}`, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0.9rem 2.5rem", backdropFilter:"blur(8px)" }}>
-      <span onClick={() => navigate("home")} style={{ fontFamily:FONTS.serif, fontSize:"1rem", fontWeight:700, fontStyle:"italic", cursor:"pointer", color:COLORS.ink, letterSpacing:"0.02em" }}>
-        Polyphonic Synchronicity
-      </span>
+    <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(250,247,242,0.97)", borderBottom:`1px solid ${COLORS.border}`, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0.5rem 2.5rem", backdropFilter:"blur(8px)" }}>
       <div style={{ display:"flex", gap:"2rem", alignItems:"center" }}>
-        {[["home","June Reads"],["readinglist","Reading List"],["bookclub","S&S Book Club"]].map(([id,label]) => (
+        {[["home","Books"],["readinglist","Reading List"],["bookclub","S&S Book Club"]].map(([id,label]) => (
           <span key={id} onClick={() => navigate(id)} style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", letterSpacing:"0.1em", textTransform:"uppercase", cursor:"pointer", color: page===id ? COLORS.goldDark : COLORS.muted, borderBottom: page===id ? `1px solid ${COLORS.gold}` : "1px solid transparent", paddingBottom:"2px", transition:"color 0.2s" }}>{label}</span>
         ))}
-        <span onClick={() => navigate("admin")} style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", color: COLORS.muted, borderLeft:`1px solid ${COLORS.border}`, paddingLeft:"2rem", opacity:0.5 }} title="Admin">⚙</span>
+      </div>
+      <div style={{ display:"flex", alignItems:"center", gap:"1rem" }}>
+        <span onClick={() => navigate("admin")} style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", color: COLORS.muted, opacity:0.5 }} title="Admin">⚙</span>
       </div>
     </nav>
   );
@@ -155,13 +371,28 @@ function Nav({ page, navigate }) {
 
 // ─── HOME PAGE ────────────────────────────────────────────────────────────────
 function HomePage({ books, onBookClick }) {
-  const juneBooks = books.filter(b => b.quarter === "June");
+  // Group books by month+year - derive dynamically from database
+  const monthGroups = {};
+  books.forEach(b => {
+    if (!b.month) return;
+    const key = `${b.month} ${b.year || ""}`.trim();
+    if (!monthGroups[key]) monthGroups[key] = { month: b.month, year: b.year || "", books: [] };
+    monthGroups[key].books.push(b);
+  });
+  // Sort groups: current year first, then by month order
+  const MONTH_ORDER = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const sortedGroups = Object.values(monthGroups).sort((a, b) => {
+    if (a.year !== b.year) return (a.year || 9999) - (b.year || 9999);
+    return MONTH_ORDER.indexOf(a.month) - MONTH_ORDER.indexOf(b.month);
+  });
   return (
     <div>
       <MatildaPanel />
       <DuaPanel />
       <RowlingPanel />
-      <JuneSection books={juneBooks} onBookClick={onBookClick} />
+      {sortedGroups.map(group => (
+        <MonthSection key={`${group.month}-${group.year}`} group={group} onBookClick={onBookClick} />
+      ))}
     </div>
   );
 }
@@ -174,7 +405,7 @@ function MatildaPanel() {
       <img
         src={MATILDA_IMAGE}
         alt="Matilda by Roald Dahl"
-        style={{ height:"100%", width:"100%", objectFit:"contain", objectPosition:"center", position:"relative", zIndex:1, maxHeight:"100vh" }}
+        style={{ height:"100%", width:"100%", objectFit:"cover", objectPosition:"center top", position:"relative", zIndex:1 }}
       />
     </div>
   );
@@ -185,7 +416,7 @@ function DuaPanel() {
     <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:COLORS.ink, display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0, overflow:"hidden" }}>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg/800px-Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Dua_Lipa_-_Levitating_-_The_BRIT_Awards_2021.jpg"
           alt="Dua Lipa"
           style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.35 }}
           onError={(e) => { e.target.style.display="none"; }}
@@ -208,38 +439,62 @@ function DuaPanel() {
 
 function RowlingPanel() {
   return (
-    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:COLORS.cream, display:"flex", alignItems:"center", justifyContent:"center" }}>
+    <div style={{ height:"100vh", position:"relative", overflow:"hidden", background:"#1a1208", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <div style={{ position:"absolute", inset:0 }}>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/5/5b/J._K._Rowling_2010.jpg"
           alt="J.K. Rowling"
-          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.2 }}
-          onError={(e) => { e.target.style.display="none"; }}
+          style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center", opacity:0.38, filter:"grayscale(20%)" }}
+          onError={(e) => { e.target.parentElement.style.background="#2a1a10"; e.target.style.display="none"; }}
         />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(to bottom, rgba(245,240,232,0.6) 0%, rgba(245,240,232,0.85) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(26,18,8,0.75) 0%, rgba(26,18,8,0.5) 50%, rgba(26,18,8,0.8) 100%)" }} />
       </div>
-      <div style={{ position:"relative", zIndex:2, maxWidth:"700px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem" }}>
-        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.6rem, 4vw, 2.8rem)", fontStyle:"italic", lineHeight:1.4, color:COLORS.ink, margin:0 }}>
+      <div style={{ position:"relative", zIndex:2, maxWidth:"720px", textAlign:"center", padding:"2rem", display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem" }}>
+        <div style={{ border:"1px solid rgba(201,147,58,0.4)", borderRadius:"100px", padding:"0.3rem 1.1rem" }}>
+          <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.gold }}>J.K. Rowling</span>
+        </div>
+        <p style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.8rem, 4.5vw, 3rem)", fontStyle:"italic", lineHeight:1.35, color:"#fff", margin:0 }}>
           "No story lives unless someone wants to listen. The stories we love best do live in us forever."
         </p>
-        <div style={{ width:"40px", height:"1px", background:COLORS.ink }} />
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.8rem", letterSpacing:"0.1em", color:COLORS.muted, textTransform:"uppercase", margin:0 }}>— J.K. Rowling</p>
+        <div style={{ width:"48px", height:"2px", background:COLORS.gold }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.8rem", letterSpacing:"0.1em", color:"rgba(255,255,255,0.45)", textTransform:"uppercase", margin:0 }}>— On the power of stories</p>
       </div>
     </div>
   );
 }
 
 // ─── JUNE SECTION ─────────────────────────────────────────────────────────────
-function JuneSection({ books, onBookClick }) {
+function MonthSection({ group, onBookClick }) {
+  const { month, year, books } = group;
   const statusMeta = { read:{ label:"Finished", color:COLORS.sage, bg:"#e8f0e7" }, reading:{ label:"Reading now", color:COLORS.rust, bg:"#f5ebe8" }, upcoming:{ label:"Up next", color:COLORS.muted, bg:COLORS.cream }, done:{ label:"Finished", color:COLORS.sage, bg:"#e8f0e7" } };
+  const done = books.filter(b => b.status === "done" || b.status === "read").length;
+  const reading = books.filter(b => b.status === "reading").length;
+  const upcoming = books.filter(b => b.status === "upcoming").length;
+  const prizes = [...new Set(books.flatMap(b => b.prizes || []))];
+  // Auto-generate description from actual data
+  const descParts = [];
+  if (books.length > 0) descParts.push(`${books.length} book${books.length > 1 ? "s" : ""} this month`);
+  if (done > 0 && reading > 0) descParts.push(`${done} finished, ${reading} in progress`);
+  else if (done > 0) descParts.push(`${done} finished`);
+  else if (reading > 0) descParts.push(`${reading} in progress`);
+  if (upcoming > 0) descParts.push(`${upcoming} coming up`);
+  if (prizes.length > 0) descParts.push(prizes.slice(0,3).join(", ") + " represented");
+  const autoDesc = descParts.join(" — ") + ".";
   return (
-    <section style={{ padding:"6rem 2.5rem", maxWidth:"1200px", margin:"0 auto" }}>
-      <div style={{ marginBottom:"4rem", borderBottom:`1px solid ${COLORS.border}`, paddingBottom:"2rem" }}>
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.5rem" }}>Current Reads</p>
-        <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3rem)", fontWeight:700, margin:"0 0 1rem", color:COLORS.ink }}>Books for June</h2>
-        <p style={{ fontFamily:FONTS.sans, fontSize:"1rem", color:COLORS.muted, maxWidth:"520px", lineHeight:1.7, margin:0 }}>Five books this month — three finished, two in progress. A Pulitzer winner, a Booker winner, a Nobel laureate, a Japanese quiet masterpiece, and a poet-memoirist at full force.</p>
+    <section style={{ padding:"6rem 2.5rem", maxWidth:"1200px", margin:"0 auto", borderBottom:`1px solid ${COLORS.border}` }}>
+      <div style={{ marginBottom:"4rem", textAlign:"center" }}>
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.75rem" }}>
+          {done > 0 || reading > 0 ? "Current Reads" : "Coming Up"}
+        </p>
+        <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3.2rem)", fontWeight:700, margin:"0 0 1.25rem", color:COLORS.ink }}>
+          Books for {month}{year ? ` ${year}` : ""}
+        </h2>
+        <div style={{ width:"48px", height:"1px", background:COLORS.gold, margin:"0 auto 1.25rem" }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"1rem", color:COLORS.muted, maxWidth:"600px", lineHeight:1.75, margin:"0 auto" }}>
+          {autoDesc}
+        </p>
       </div>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(240px, 1fr))", gap:"2rem" }}>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))", gap:"1.75rem" }}>
         {books.map(book => <BookCard key={book.id} book={book} meta={statusMeta} onClick={() => onBookClick(book)} />)}
       </div>
     </section>
@@ -252,27 +507,28 @@ function BookCard({ book, meta, onClick }) {
   const m = meta[book.status] || meta.upcoming;
   return (
     <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={onClick}
-      style={{ background:"#fff", border:`1px solid ${hovered ? COLORS.gold : COLORS.border}`, borderRadius:"4px", overflow:"hidden", cursor:"pointer", transform: hovered ? "translateY(-4px)" : "none", transition:"all 0.2s", display:"flex", flexDirection:"column" }}>
-      <div style={{ height:"220px", background:COLORS.cream, position:"relative", overflow:"hidden" }}>
+      style={{ background:"#fff", border:`1px solid ${hovered ? COLORS.gold : COLORS.border}`, borderRadius:"4px", overflow:"hidden", cursor:"pointer", transform: hovered ? "translateY(-6px)" : "none", transition:"all 0.25s", display:"flex", flexDirection:"column", boxShadow: hovered ? "0 8px 32px rgba(0,0,0,0.12)" : "none" }}>
+      <div style={{ aspectRatio:"2/3", background:COLORS.cream, position:"relative", overflow:"hidden", minHeight:"280px" }}>
         {book.cover && !imgErr
-          ? <img src={book.cover} alt={book.title} style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={() => setImgErr(true)} />
-          : <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", padding:"1rem", textAlign:"center", gap:"0.5rem" }}>
-              <span style={{ fontSize:"2rem" }}>📚</span>
-              <span style={{ fontFamily:FONTS.serif, fontSize:"0.9rem", color:COLORS.muted }}>{book.title}</span>
+          ? <img src={book.cover} alt={book.title} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} onError={() => setImgErr(true)} />
+          : <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", padding:"2rem", textAlign:"center", gap:"0.75rem", background: `linear-gradient(135deg, ${COLORS.cream} 0%, #e8ddd0 100%)` }}>
+              <span style={{ fontFamily:FONTS.serif, fontSize:"1.05rem", fontWeight:700, color:COLORS.ink, lineHeight:1.3 }}>{book.title}</span>
+              <span style={{ fontFamily:FONTS.sans, fontSize:"0.8rem", color:COLORS.muted, fontStyle:"italic" }}>{book.author}</span>
             </div>
         }
-        <div style={{ position:"absolute", top:"0.75rem", right:"0.75rem", background:m.bg, color:m.color, fontSize:"0.62rem", letterSpacing:"0.1em", textTransform:"uppercase", fontFamily:FONTS.sans, fontWeight:500, padding:"0.2rem 0.55rem", borderRadius:"2px" }}>{m.label}</div>
-      </div>
-      <div style={{ padding:"1.2rem", flex:1, display:"flex", flexDirection:"column", gap:"0.35rem" }}>
-        <div style={{ display:"flex", gap:"0.4rem", flexWrap:"wrap" }}>
-          {book.genre && <span style={{ fontFamily:FONTS.sans, fontSize:"0.62rem", letterSpacing:"0.1em", textTransform:"uppercase", color:COLORS.gold }}>{book.genre}</span>}
-          {book.prizes && book.prizes.map(p => <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", color:COLORS.goldDark, background:"#fdf4e0", border:`1px solid ${COLORS.goldLight}`, borderRadius:"2px", padding:"0.1rem 0.35rem" }}>{p}</span>)}
-        </div>
-        <h3 style={{ fontFamily:FONTS.serif, fontSize:"1.05rem", fontWeight:700, margin:0, color:COLORS.ink, lineHeight:1.3 }}>{book.title}</h3>
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.8rem", color:COLORS.muted, margin:0, fontStyle:"italic" }}>{book.author}</p>
-        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:"auto", paddingTop:"0.75rem", borderTop:`1px solid ${COLORS.border}` }}>
-          {book.rating ? <span style={{ fontFamily:FONTS.serif, fontSize:"0.85rem", fontWeight:600, color:COLORS.goldDark }}>★ {book.rating}</span> : <span/>}
-          <span style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", letterSpacing:"0.1em", textTransform:"uppercase", color:COLORS.muted }}>Notes →</span>
+        <div style={{ position:"absolute", top:"0.75rem", left:"0.75rem", background:m.bg, color:m.color, fontSize:"0.6rem", letterSpacing:"0.1em", textTransform:"uppercase", fontFamily:FONTS.sans, fontWeight:500, padding:"0.2rem 0.55rem", borderRadius:"2px" }}>{m.label}</div>
+        {book.rating && <div style={{ position:"absolute", bottom:"0.75rem", right:"0.75rem", background:"rgba(26,18,8,0.75)", color:COLORS.gold, fontSize:"0.78rem", fontFamily:FONTS.serif, fontWeight:600, padding:"0.2rem 0.55rem", borderRadius:"2px" }}>★ {book.rating}</div>}
+        <div style={{ position:"absolute", inset:0, background: hovered ? "rgba(0,0,0,0)" : "transparent", transition:"all 0.25s" }}>
+          {hovered && (
+            <div style={{ position:"absolute", bottom:0, left:0, right:0, background:"linear-gradient(to top, rgba(26,18,8,0.92) 0%, transparent 100%)", padding:"2rem 1rem 1rem", display:"flex", flexDirection:"column", gap:"0.3rem" }}>
+              {book.prizes && book.prizes.length > 0 && <div style={{ display:"flex", gap:"0.3rem", flexWrap:"wrap" }}>
+                {book.prizes.map(p => <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", color:COLORS.gold, background:"rgba(201,147,58,0.2)", border:`1px solid rgba(201,147,58,0.4)`, borderRadius:"2px", padding:"0.1rem 0.4rem" }}>{p}</span>)}
+              </div>}
+              <span style={{ fontFamily:FONTS.serif, fontSize:"0.95rem", fontWeight:700, color:"#fff", lineHeight:1.3 }}>{book.title}</span>
+              <span style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", color:"rgba(255,255,255,0.65)", fontStyle:"italic" }}>{book.author}</span>
+              {book.genre && <span style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"rgba(255,255,255,0.45)", marginTop:"0.2rem" }}>{book.genre} · Notes →</span>}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -281,45 +537,104 @@ function BookCard({ book, meta, onClick }) {
 
 // ─── BOOK DETAIL ──────────────────────────────────────────────────────────────
 function BookDetail({ book, onBack }) {
-  const [tab, setTab] = useState(book.finalReview ? "final" : "initial");
+  const [tab, setTab] = useState("initial");
   const [imgErr, setImgErr] = useState(false);
+  const [initialText, setInitialText] = useState(book.initialComments || "");
+  const [finalText, setFinalText] = useState(book.finalReview || "");
+  const [saveStatus, setSaveStatus] = useState("");
+
+  const handleSaveNotes = async () => {
+    setSaveStatus("Saving…");
+    try {
+      const storageKey = `book_notes_${book.id}`;
+      await window.storage.set(storageKey, JSON.stringify({ initialComments: initialText, finalReview: finalText }));
+      setSaveStatus("✓ Saved");
+      setTimeout(() => setSaveStatus(""), 2500);
+    } catch {
+      setSaveStatus("Error saving");
+      setTimeout(() => setSaveStatus(""), 2500);
+    }
+  };
+
+  useEffect(() => {
+    const storageKey = `book_notes_${book.id}`;
+    window.storage.get(storageKey).then(r => {
+      if (r) {
+        const d = JSON.parse(r.value);
+        if (d.initialComments) setInitialText(d.initialComments);
+        if (d.finalReview) setFinalText(d.finalReview);
+      }
+    }).catch(() => {});
+  }, [book.id]);
+
   return (
     <div style={{ fontFamily:FONTS.sans, background:COLORS.parchment, minHeight:"100vh" }}>
       <style>{GF}</style>
-      <div style={{ position:"sticky", top:0, zIndex:50, background:COLORS.parchment, borderBottom:`1px solid ${COLORS.border}`, padding:"0.8rem 2.5rem", display:"flex", alignItems:"center", gap:"1rem" }}>
-        <button onClick={onBack} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.08em", textTransform:"uppercase", color:COLORS.muted, padding:0 }}>← Back</button>
-        <span style={{ color:COLORS.border }}>|</span>
-        <span style={{ fontFamily:FONTS.serif, fontSize:"0.9rem", color:COLORS.ink }}>{book.title}</span>
+      <div style={{ position:"sticky", top:0, zIndex:50 }}>
+        <div style={{ background:"rgba(250,247,242,0.97)", borderBottom:`1px solid ${COLORS.border}`, padding:"0.6rem 2.5rem", display:"flex", alignItems:"center", justifyContent:"space-between", backdropFilter:"blur(8px)" }}>
+          <button onClick={onBack} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.08em", textTransform:"uppercase", color:COLORS.muted, padding:0 }}>← Back</button>
+          <span style={{ fontFamily:FONTS.sans, fontSize:"0.7rem", letterSpacing:"0.08em", color:COLORS.muted, opacity:0.6 }}>{book.title}</span>
+        </div>
+        <MughalBanner onClick={onBack} />
       </div>
-      <div style={{ maxWidth:"900px", margin:"0 auto", padding:"4rem 2.5rem" }}>
-        <div style={{ display:"grid", gridTemplateColumns:"160px 1fr", gap:"3rem", marginBottom:"4rem", alignItems:"start" }}>
-          <div style={{ aspectRatio:"2/3", background:COLORS.cream, borderRadius:"2px", overflow:"hidden", border:`1px solid ${COLORS.border}` }}>
+
+      <div style={{ maxWidth:"900px", margin:"0 auto", padding:"3.5rem 2.5rem" }}>
+        <div style={{ display:"grid", gridTemplateColumns:"180px 1fr", gap:"3rem", marginBottom:"3.5rem", alignItems:"start" }}>
+          <div style={{ aspectRatio:"2/3", background:COLORS.cream, borderRadius:"3px", overflow:"hidden", border:`1px solid ${COLORS.border}`, boxShadow:"0 4px 24px rgba(0,0,0,0.08)" }}>
             {book.cover && !imgErr
               ? <img src={book.cover} alt={book.title} style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={() => setImgErr(true)} />
-              : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", padding:"1rem" }}><span style={{ fontFamily:FONTS.serif, fontSize:"0.85rem", color:COLORS.muted, textAlign:"center" }}>{book.title}</span></div>
+              : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", padding:"1rem", background:`linear-gradient(135deg, ${COLORS.cream}, #e0d5c8)` }}>
+                  <span style={{ fontFamily:FONTS.serif, fontSize:"0.9rem", color:COLORS.muted, textAlign:"center", lineHeight:1.4 }}>{book.title}</span>
+                </div>
             }
           </div>
-          <div style={{ display:"flex", flexDirection:"column", gap:"0.9rem" }}>
+          <div style={{ display:"flex", flexDirection:"column", gap:"1rem" }}>
             <p style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", letterSpacing:"0.18em", textTransform:"uppercase", color:COLORS.gold, margin:0 }}>{book.genre}</p>
-            <h1 style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.6rem, 4vw, 2.6rem)", fontWeight:700, lineHeight:1.2, margin:0 }}>{book.title}</h1>
+            <h1 style={{ fontFamily:FONTS.serif, fontSize:"clamp(1.8rem, 4vw, 2.8rem)", fontWeight:900, lineHeight:1.15, margin:0, color:COLORS.ink }}>{book.title}</h1>
             <p style={{ fontFamily:FONTS.serif, fontSize:"1rem", fontStyle:"italic", color:COLORS.muted, margin:0 }}>by {book.author}</p>
-            <div style={{ display:"flex", flexWrap:"wrap", gap:"0.4rem", marginTop:"0.25rem" }}>
+            <div style={{ display:"flex", flexWrap:"wrap", gap:"0.4rem", marginTop:"0.15rem" }}>
               {book.prizes && book.prizes.map(p => <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", color:COLORS.goldDark, background:"#fdf4e0", border:`1px solid ${COLORS.goldLight}`, borderRadius:"2px", padding:"0.2rem 0.55rem" }}>{p}</span>)}
             </div>
             {book.rating && <div style={{ display:"inline-flex", alignItems:"center", gap:"0.4rem", background:COLORS.cream, border:`1px solid ${COLORS.border}`, borderRadius:"2px", padding:"0.35rem 0.8rem", alignSelf:"flex-start" }}>
-              <span style={{ color:COLORS.gold }}>★</span>
-              <span style={{ fontFamily:FONTS.sans, fontSize:"0.88rem" }}>{book.rating}</span>
+              <span style={{ color:COLORS.gold, fontSize:"1rem" }}>★</span>
+              <span style={{ fontFamily:FONTS.sans, fontSize:"0.9rem", fontWeight:500 }}>{book.rating}</span>
             </div>}
+            {book.tag && <span style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", color:COLORS.muted, letterSpacing:"0.1em", textTransform:"uppercase" }}>{book.tag}</span>}
           </div>
         </div>
-        <div style={{ borderBottom:`1px solid ${COLORS.border}`, marginBottom:"2.5rem", display:"flex", gap:"2rem" }}>
-          {[["initial","Initial Notes"],["final","Final Review"]].map(([id,label]) => (
-            <button key={id} onClick={() => setTab(id)} style={{ background:"none", border:"none", borderBottom: tab===id ? `2px solid ${COLORS.gold}` : "2px solid transparent", padding:"0 0 1rem", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.8rem", letterSpacing:"0.1em", textTransform:"uppercase", color: tab===id ? COLORS.ink : COLORS.muted, transition:"color 0.2s" }}>{label}</button>
-          ))}
+
+        <div style={{ borderBottom:`1px solid ${COLORS.border}`, marginBottom:"2rem", display:"flex", gap:"2rem", alignItems:"flex-end", justifyContent:"space-between" }}>
+          <div style={{ display:"flex", gap:"2rem" }}>
+            {[["initial","Initial Notes"],["final","Final Review"]].map(([id,label]) => (
+              <button key={id} onClick={() => setTab(id)} style={{ background:"none", border:"none", borderBottom: tab===id ? `2px solid ${COLORS.gold}` : "2px solid transparent", padding:"0 0 1rem", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.8rem", letterSpacing:"0.1em", textTransform:"uppercase", color: tab===id ? COLORS.ink : COLORS.muted, transition:"color 0.2s" }}>{label}</button>
+            ))}
+          </div>
+          <div style={{ display:"flex", gap:"0.75rem", alignItems:"center", paddingBottom:"0.75rem" }}>
+            {saveStatus && <span style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", color: saveStatus.includes("✓") ? COLORS.sage : COLORS.muted }}>{saveStatus}</span>}
+            <button onClick={handleSaveNotes} style={{ background:COLORS.ink, border:"none", borderRadius:"3px", padding:"0.4rem 1rem", fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.08em", color:"#fff", cursor:"pointer", textTransform:"uppercase" }}>Save Notes</button>
+          </div>
         </div>
-        <div style={{ fontFamily:FONTS.serif, fontSize:"1.05rem", lineHeight:1.85, color:COLORS.ink, maxWidth:"620px" }}>
-          {tab === "initial" && (book.initialComments ? <p style={{ fontStyle:"italic" }}>{book.initialComments}</p> : <p style={{ color:COLORS.muted, fontStyle:"italic" }}>Initial notes coming soon.</p>)}
-          {tab === "final" && (book.finalReview ? <p>{book.finalReview}</p> : <p style={{ color:COLORS.muted, fontStyle:"italic" }}>Final review will appear once I've finished.</p>)}
+
+        <div style={{ maxWidth:"680px" }}>
+          {tab === "initial" && (
+            <textarea
+              value={initialText}
+              onChange={e => setInitialText(e.target.value)}
+              placeholder="Paste or type your initial notes here…"
+              style={{ width:"100%", minHeight:"220px", fontFamily:FONTS.serif, fontSize:"1.05rem", lineHeight:1.85, color:COLORS.ink, background:"transparent", border:"none", borderBottom:`1px solid ${COLORS.border}`, outline:"none", resize:"vertical", padding:"0.5rem 0", fontStyle: initialText ? "normal" : "italic", boxSizing:"border-box" }}
+            />
+          )}
+          {tab === "final" && (
+            <textarea
+              value={finalText}
+              onChange={e => setFinalText(e.target.value)}
+              placeholder="Write your final review here once you've finished…"
+              style={{ width:"100%", minHeight:"220px", fontFamily:FONTS.serif, fontSize:"1.05rem", lineHeight:1.85, color:COLORS.ink, background:"transparent", border:"none", borderBottom:`1px solid ${COLORS.border}`, outline:"none", resize:"vertical", padding:"0.5rem 0", boxSizing:"border-box" }}
+            />
+          )}
+          <p style={{ fontFamily:FONTS.sans, fontSize:"0.68rem", color:COLORS.muted, marginTop:"0.75rem", letterSpacing:"0.05em" }}>
+            Press Save Notes to persist your changes across sessions.
+          </p>
         </div>
       </div>
     </div>
@@ -327,10 +642,12 @@ function BookDetail({ book, onBack }) {
 }
 
 // ─── READING LIST PAGE ────────────────────────────────────────────────────────
-function ReadingListPage({ books }) {
+function ReadingListPage({ books, onBookClick }) {
   const [activeQuarter, setActiveQuarter] = useState("June");
   const [filterGenre, setFilterGenre] = useState("All");
   const [filterPrize, setFilterPrize] = useState("All");
+  const [view, setView] = useState("grid");
+  const [imgErr, setImgErr] = useState({});
 
   const quarterBooks = books.filter(b => b.quarter === activeQuarter);
   const genres = ["All", ...Array.from(new Set(quarterBooks.map(b => b.genre).filter(Boolean)))];
@@ -342,97 +659,235 @@ function ReadingListPage({ books }) {
     return gMatch && pMatch;
   });
 
-  const statusIcon = { done:{ sym:"✓", color:COLORS.sage }, reading:{ sym:"→", color:COLORS.rust }, upcoming:{ sym:"○", color:COLORS.muted } };
+  const statusMeta = {
+    done: { label:"Finished", color:COLORS.sage, bg:"#e8f0e7" },
+    read: { label:"Finished", color:COLORS.sage, bg:"#e8f0e7" },
+    reading: { label:"Reading now", color:COLORS.rust, bg:"#f5ebe8" },
+    upcoming: { label:"Up next", color:COLORS.muted, bg:COLORS.cream },
+  };
+
+  const stats = [
+    { label:"Total", count:filtered.length, color:COLORS.ink },
+    { label:"Finished", count:filtered.filter(b=>b.status==="done"||b.status==="read").length, color:COLORS.sage },
+    { label:"Reading", count:filtered.filter(b=>b.status==="reading").length, color:COLORS.rust },
+    { label:"Up next", count:filtered.filter(b=>b.status==="upcoming").length, color:COLORS.muted },
+  ];
 
   return (
-    <div style={{ maxWidth:"1000px", margin:"0 auto", padding:"5rem 2.5rem" }}>
-      <div style={{ marginBottom:"3rem" }}>
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.5rem" }}>2026 Reading Journey</p>
+    <div style={{ maxWidth:"1200px", margin:"0 auto", padding:"3.5rem 2.5rem" }}>
+      <div style={{ textAlign:"center", marginBottom:"3rem" }}>
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.75rem" }}>2026 Reading Journey</p>
         <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3rem)", fontWeight:700, margin:"0 0 1rem", color:COLORS.ink }}>Reading List</h2>
-        <p style={{ fontFamily:FONTS.sans, color:COLORS.muted, lineHeight:1.7, maxWidth:"480px", margin:0 }}>A living document — part plan, part record, part wishlist.</p>
+        <div style={{ width:"48px", height:"1px", background:COLORS.gold, margin:"0 auto 1rem" }} />
+        <p style={{ fontFamily:FONTS.sans, color:COLORS.muted, lineHeight:1.7, maxWidth:"480px", margin:"0 auto" }}>A living document. Part plan, part record, part wishlist. Updated live from the database.</p>
       </div>
-      <div style={{ display:"flex", gap:"0.5rem", marginBottom:"0", borderBottom:`1px solid ${COLORS.border}`, flexWrap:"wrap" }}>
+
+      <div style={{ display:"flex", gap:"0.5rem", borderBottom:`1px solid ${COLORS.border}`, flexWrap:"wrap", marginBottom:0 }}>
         {QUARTERS.map(q => (
           <button key={q} onClick={() => { setActiveQuarter(q); setFilterGenre("All"); setFilterPrize("All"); }}
             style={{ background: activeQuarter===q ? COLORS.ink : "none", color: activeQuarter===q ? "#fff" : COLORS.muted, border:`1px solid ${activeQuarter===q ? COLORS.ink : COLORS.border}`, borderBottom:"none", padding:"0.5rem 1.25rem", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.75rem", letterSpacing:"0.08em", textTransform:"uppercase", borderRadius:"3px 3px 0 0", transition:"all 0.15s" }}>{q}</button>
         ))}
       </div>
-      <div style={{ padding:"1.5rem 0", display:"flex", gap:"1rem", flexWrap:"wrap", borderBottom:`1px solid ${COLORS.border}`, marginBottom:"2rem" }}>
-        <select value={filterGenre} onChange={e => setFilterGenre(e.target.value)} style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", border:`1px solid ${COLORS.border}`, background:"#fff", padding:"0.35rem 0.75rem", color:COLORS.ink, borderRadius:"2px", cursor:"pointer" }}>
-          {genres.map(g => <option key={g} value={g}>{g === "All" ? "All Genres" : g}</option>)}
-        </select>
-        <select value={filterPrize} onChange={e => setFilterPrize(e.target.value)} style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", border:`1px solid ${COLORS.border}`, background:"#fff", padding:"0.35rem 0.75rem", color:COLORS.ink, borderRadius:"2px", cursor:"pointer" }}>
-          {prizes.map(p => <option key={p} value={p}>{p === "All" ? "All Prizes" : p}</option>)}
-        </select>
-        <span style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", color:COLORS.muted, alignSelf:"center" }}>{filtered.length} books</span>
+
+      <div style={{ padding:"1rem 0", display:"flex", gap:"1rem", flexWrap:"wrap", borderBottom:`1px solid ${COLORS.border}`, marginBottom:"2rem", alignItems:"center", justifyContent:"space-between" }}>
+        <div style={{ display:"flex", gap:"0.75rem", flexWrap:"wrap", alignItems:"center" }}>
+          <select value={filterGenre} onChange={e => setFilterGenre(e.target.value)} style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", border:`1px solid ${COLORS.border}`, background:"#fff", padding:"0.35rem 0.75rem", color:COLORS.ink, borderRadius:"2px", cursor:"pointer" }}>
+            {genres.map(g => <option key={g} value={g}>{g === "All" ? "All Genres" : g}</option>)}
+          </select>
+          <select value={filterPrize} onChange={e => setFilterPrize(e.target.value)} style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", border:`1px solid ${COLORS.border}`, background:"#fff", padding:"0.35rem 0.75rem", color:COLORS.ink, borderRadius:"2px", cursor:"pointer" }}>
+            {prizes.map(p => <option key={p} value={p}>{p === "All" ? "All Prizes" : p}</option>)}
+          </select>
+          <span style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", color:COLORS.muted }}>{filtered.length} books</span>
+        </div>
+        <div style={{ display:"flex", gap:"0.4rem" }}>
+          {[["grid","▦"],["list","☰"]].map(([v,icon]) => (
+            <button key={v} onClick={() => setView(v)} style={{ background: view===v ? COLORS.ink : "none", color: view===v ? "#fff" : COLORS.muted, border:`1px solid ${view===v ? COLORS.ink : COLORS.border}`, borderRadius:"2px", padding:"0.3rem 0.6rem", cursor:"pointer", fontFamily:FONTS.sans, fontSize:"0.8rem", transition:"all 0.15s" }}>{icon}</button>
+          ))}
+        </div>
       </div>
+
       <div style={{ display:"flex", gap:"2rem", marginBottom:"2.5rem", flexWrap:"wrap" }}>
-        {[{ label:"Total", count:filtered.length, color:COLORS.ink },{ label:"Finished", count:filtered.filter(b=>b.status==="done").length, color:COLORS.sage },{ label:"Reading", count:filtered.filter(b=>b.status==="reading").length, color:COLORS.rust },{ label:"Coming up", count:filtered.filter(b=>b.status==="upcoming").length, color:COLORS.muted }].map(({ label, count, color }) => (
+        {stats.map(({ label, count, color }) => (
           <div key={label} style={{ display:"flex", flexDirection:"column", gap:"2px" }}>
-            <span style={{ fontFamily:FONTS.serif, fontSize:"1.4rem", fontWeight:700, color }}>{count}</span>
-            <span style={{ fontFamily:FONTS.sans, fontSize:"0.65rem", letterSpacing:"0.1em", textTransform:"uppercase", color:COLORS.muted }}>{label}</span>
+            <span style={{ fontFamily:FONTS.serif, fontSize:"1.6rem", fontWeight:700, color }}>{count}</span>
+            <span style={{ fontFamily:FONTS.sans, fontSize:"0.62rem", letterSpacing:"0.1em", textTransform:"uppercase", color:COLORS.muted }}>{label}</span>
           </div>
         ))}
       </div>
-      <div>
-        {filtered.map((book, i) => {
-          const s = statusIcon[book.status] || statusIcon.upcoming;
-          return (
-            <div key={book.id || i} style={{ display:"flex", alignItems:"baseline", gap:"1rem", padding:"0.75rem 0", borderBottom:`1px solid ${COLORS.border}` }}>
-              <span style={{ fontSize:"0.82rem", color:s.color, fontFamily:FONTS.mono, minWidth:"16px", fontWeight:600 }}>{s.sym}</span>
-              <div style={{ flex:1, display:"flex", flexWrap:"wrap", alignItems:"baseline", gap:"0.45rem" }}>
-                <span style={{ fontFamily:FONTS.serif, fontSize:"0.95rem", color:COLORS.ink }}>{book.title}</span>
-                {book.author && <span style={{ fontFamily:FONTS.sans, fontSize:"0.78rem", color:COLORS.muted, fontStyle:"italic" }}>— {book.author}</span>}
-                {book.prizes && book.prizes.map(p => <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", color:COLORS.goldDark, background:"#fdf4e0", border:`1px solid ${COLORS.goldLight}`, borderRadius:"2px", padding:"0.1rem 0.4rem" }}>{p}</span>)}
-                {book.tag && <span style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", color:COLORS.muted, background:COLORS.cream, border:`1px solid ${COLORS.border}`, borderRadius:"2px", padding:"0.1rem 0.4rem" }}>{book.tag}</span>}
+
+      {view === "grid" ? (
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(180px, 1fr))", gap:"1.5rem" }}>
+          {filtered.map(book => {
+            const m = statusMeta[book.status] || statusMeta.upcoming;
+            const hasImg = book.cover && !imgErr[book.id];
+            return (
+              <div key={book.id}
+                onClick={() => onBookClick(book)}
+                style={{ cursor:"pointer", display:"flex", flexDirection:"column", gap:0 }}
+                onMouseEnter={e => e.currentTarget.querySelector(".rl-card").style.transform = "translateY(-4px)"}
+                onMouseLeave={e => e.currentTarget.querySelector(".rl-card").style.transform = "none"}
+              >
+                <div className="rl-card" style={{ borderRadius:"3px", overflow:"hidden", border:`1px solid ${COLORS.border}`, transition:"all 0.2s", background:"#fff" }}>
+                  <div style={{ aspectRatio:"2/3", background:COLORS.cream, position:"relative", overflow:"hidden" }}>
+                    {hasImg
+                      ? <img src={book.cover} alt={book.title} style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={() => setImgErr(prev => ({ ...prev, [book.id]: true }))} />
+                      : <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", padding:"1rem", textAlign:"center", background:`linear-gradient(135deg, ${COLORS.cream}, #e0d5c8)` }}>
+                          <span style={{ fontFamily:FONTS.serif, fontSize:"0.82rem", color:COLORS.muted, lineHeight:1.4 }}>{book.title}</span>
+                        </div>
+                    }
+                    <div style={{ position:"absolute", top:"0.5rem", left:"0.5rem", background:m.bg, color:m.color, fontSize:"0.55rem", letterSpacing:"0.1em", textTransform:"uppercase", fontFamily:FONTS.sans, fontWeight:500, padding:"0.15rem 0.45rem", borderRadius:"2px" }}>{m.label}</div>
+                    {book.rating && <div style={{ position:"absolute", bottom:"0.5rem", right:"0.5rem", background:"rgba(26,18,8,0.8)", color:COLORS.gold, fontSize:"0.7rem", fontFamily:FONTS.serif, fontWeight:600, padding:"0.15rem 0.45rem", borderRadius:"2px" }}>★ {book.rating}</div>}
+                  </div>
+                  <div style={{ padding:"0.75rem" }}>
+                    {book.prizes && book.prizes.length > 0 && (
+                      <div style={{ display:"flex", gap:"0.25rem", flexWrap:"wrap", marginBottom:"0.35rem" }}>
+                        {book.prizes.slice(0,2).map(p => <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.55rem", color:COLORS.goldDark, background:"#fdf4e0", border:`1px solid ${COLORS.goldLight}`, borderRadius:"2px", padding:"0.1rem 0.35rem" }}>{p}</span>)}
+                      </div>
+                    )}
+                    <p style={{ fontFamily:FONTS.serif, fontSize:"0.85rem", fontWeight:700, margin:"0 0 0.2rem", color:COLORS.ink, lineHeight:1.3 }}>{book.title}</p>
+                    {book.author && <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", color:COLORS.muted, margin:0, fontStyle:"italic" }}>{book.author}</p>}
+                  </div>
+                </div>
               </div>
-              {book.rating && <span style={{ fontFamily:FONTS.serif, fontSize:"0.8rem", color:COLORS.goldDark, fontWeight:600, whiteSpace:"nowrap" }}>★ {book.rating}</span>}
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div>
+          {filtered.map((book, i) => {
+            const m = statusMeta[book.status] || statusMeta.upcoming;
+            const hasImg = book.cover && !imgErr[book.id];
+            return (
+              <div key={book.id || i}
+                onClick={() => onBookClick(book)}
+                style={{ display:"flex", alignItems:"center", gap:"1rem", padding:"0.75rem 0.5rem", borderBottom:`1px solid ${COLORS.border}`, cursor:"pointer", borderRadius:"2px", transition:"background 0.15s" }}
+                onMouseEnter={e => e.currentTarget.style.background = COLORS.cream}
+                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+              >
+                <div style={{ width:"44px", height:"62px", flexShrink:0, borderRadius:"2px", overflow:"hidden", background:COLORS.cream, border:`1px solid ${COLORS.border}` }}>
+                  {hasImg
+                    ? <img src={book.cover} alt={book.title} style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={() => setImgErr(prev => ({ ...prev, [book.id]: true }))} />
+                    : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center" }}><span style={{ fontSize:"1rem" }}>📚</span></div>
+                  }
+                </div>
+                <div style={{ flex:1, minWidth:0 }}>
+                  <div style={{ display:"flex", flexWrap:"wrap", gap:"0.3rem", marginBottom:"0.2rem" }}>
+                    {book.prizes && book.prizes.map(p => <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.58rem", color:COLORS.goldDark, background:"#fdf4e0", border:`1px solid ${COLORS.goldLight}`, borderRadius:"2px", padding:"0.08rem 0.35rem" }}>{p}</span>)}
+                    {book.tag && <span style={{ fontFamily:FONTS.sans, fontSize:"0.58rem", color:COLORS.muted, background:COLORS.cream, border:`1px solid ${COLORS.border}`, borderRadius:"2px", padding:"0.08rem 0.35rem" }}>{book.tag}</span>}
+                  </div>
+                  <p style={{ fontFamily:FONTS.serif, fontSize:"0.92rem", fontWeight:700, margin:"0 0 0.15rem", color:COLORS.ink, lineHeight:1.2 }}>{book.title}</p>
+                  {book.author && <p style={{ fontFamily:FONTS.sans, fontSize:"0.75rem", color:COLORS.muted, margin:0, fontStyle:"italic" }}>{book.author}</p>}
+                </div>
+                <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:"0.3rem", flexShrink:0 }}>
+                  {book.rating && <span style={{ fontFamily:FONTS.serif, fontSize:"0.8rem", color:COLORS.goldDark, fontWeight:600 }}>★ {book.rating}</span>}
+                  <span style={{ fontFamily:FONTS.sans, fontSize:"0.58rem", letterSpacing:"0.08em", textTransform:"uppercase", color:m.color, background:m.bg, padding:"0.15rem 0.45rem", borderRadius:"2px" }}>{m.label}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
 
 // ─── S&S BOOK CLUB ────────────────────────────────────────────────────────────
-function BookClubPage() {
-  const sections = [
-    { label:"June — Sandeep's Picks", color:COLORS.rust, books:[
-      { title:"Trust", author:"Hernán Diaz", note:"Pulitzer Prize winner — four narratives, one truth" },
-      { title:"Before the Coffee Gets Cold", author:"Toshikazu Kawaguchi", note:"Time, regret, and a Tokyo café" },
-    ]},
-    { label:"July — Shoba's Picks", color:COLORS.sage, books:[
-      { title:"The Nights Are Quiet in Tehran", author:"Shida Bazyar", note:"Four women across four decades of Iranian history" },
-      { title:"Tomorrow, Tomorrow, Tomorrow", author:"Gabrielle Zevin", note:"Video games, friendship, the making of a life" },
-    ]},
+function BookClubPage({ books, onBookClick }) {
+  const [imgErr, setImgErr] = useState({});
+
+  const SS_TITLES = [
+    { title:"Trust", picker:"Sandeep", month:"June", note:"Pulitzer Prize winner — four narratives, one truth" },
+    { title:"Before the Coffee Gets Cold", picker:"Sandeep", month:"June", note:"Time, regret, and a Tokyo café" },
+    { title:"The Nights Are Quiet in Tehran", picker:"Shoba", month:"July", note:"Four women across four decades of Iranian history" },
+    { title:"Tomorrow, Tomorrow, Tomorrow", picker:"Shoba", month:"July", note:"Video games, friendship, the making of a life" },
   ];
+
+  const enriched = SS_TITLES.map(entry => {
+    const dbBook = books.find(b => b.title === entry.title);
+    return { ...entry, ...dbBook, title: entry.title, picker: entry.picker, month: entry.month, note: entry.note };
+  });
+
+  const grouped = enriched.reduce((acc, b) => {
+    const key = `${b.month} — ${b.picker === "Sandeep" ? "Sandeep's Picks" : "Shoba's Picks"}`;
+    if (!acc[key]) acc[key] = { label: key, color: b.picker === "Sandeep" ? COLORS.rust : COLORS.sage, books: [] };
+    acc[key].books.push(b);
+    return acc;
+  }, {});
+
   return (
-    <div style={{ maxWidth:"900px", margin:"0 auto", padding:"5rem 2.5rem" }}>
-      <div style={{ marginBottom:"4rem", borderBottom:`1px solid ${COLORS.border}`, paddingBottom:"3rem" }}>
-        <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.5rem" }}>A Shared Reading Life</p>
-        <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3rem)", fontWeight:700, margin:"0 0 1rem", color:COLORS.ink }}>Sandeep & Shoba Book Club</h2>
-        <p style={{ fontFamily:FONTS.sans, fontSize:"1rem", color:COLORS.muted, lineHeight:1.75, maxWidth:"480px", margin:0 }}>Two readers, two cities, one ongoing conversation. We take turns picking. We compare notes. We disagree well.</p>
+    <div style={{ maxWidth:"960px", margin:"0 auto", padding:"5rem 2.5rem" }}>
+      <div style={{ marginBottom:"4rem", borderBottom:`1px solid ${COLORS.border}`, paddingBottom:"3rem", textAlign:"center" }}>
+        <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.2em", textTransform:"uppercase", color:COLORS.gold, margin:"0 0 0.75rem" }}>A Shared Reading Life</p>
+        <h2 style={{ fontFamily:FONTS.serif, fontSize:"clamp(2rem, 4vw, 3rem)", fontWeight:700, margin:"0 0 1.25rem", color:COLORS.ink }}>Sandeep & Shoba Book Club</h2>
+        <div style={{ width:"48px", height:"1px", background:COLORS.gold, margin:"0 auto 1.25rem" }} />
+        <p style={{ fontFamily:FONTS.sans, fontSize:"1rem", color:COLORS.muted, lineHeight:1.75, maxWidth:"500px", margin:"0 auto" }}>
+          Two readers, one ongoing conversation. We take turns picking. We compare notes. We disagree well.
+        </p>
       </div>
-      {sections.map((sec, si) => (
+
+      {Object.values(grouped).map((sec, si) => (
         <div key={si} style={{ marginBottom:"4rem" }}>
-          <div style={{ display:"flex", alignItems:"center", gap:"1rem", marginBottom:"2rem" }}>
-            <div style={{ width:"32px", height:"1px", background:COLORS.gold }} />
-            <h3 style={{ fontFamily:FONTS.serif, fontSize:"1.1rem", fontStyle:"italic", color:COLORS.muted, margin:0, fontWeight:400 }}>{sec.label}</h3>
+          <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"1.5rem", marginBottom:"2.5rem" }}>
+            <div style={{ flex:1, height:"1px", background:COLORS.border }} />
+            <h3 style={{ fontFamily:FONTS.serif, fontSize:"1.05rem", fontStyle:"italic", color:COLORS.muted, margin:0, fontWeight:400, whiteSpace:"nowrap" }}>
+              ✦ {sec.label} ✦
+            </h3>
+            <div style={{ flex:1, height:"1px", background:COLORS.border }} />
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(300px, 1fr))", gap:"1.5rem" }}>
-            {sec.books.map((book, i) => (
-              <div key={i} style={{ background:"#fff", border:`1px solid ${COLORS.border}`, borderRadius:"3px", padding:"1.75rem", display:"flex", flexDirection:"column", gap:"0.75rem" }}>
-                <div style={{ width:"28px", height:"3px", background:sec.color, borderRadius:"2px" }} />
-                <h4 style={{ fontFamily:FONTS.serif, fontSize:"1.15rem", fontWeight:700, margin:0, color:COLORS.ink, lineHeight:1.3 }}>{book.title}</h4>
-                <p style={{ fontFamily:FONTS.sans, fontSize:"0.82rem", fontStyle:"italic", color:COLORS.muted, margin:0 }}>{book.author}</p>
-                <p style={{ fontFamily:FONTS.sans, fontSize:"0.85rem", color:COLORS.muted, lineHeight:1.65, margin:0 }}>{book.note}</p>
-              </div>
-            ))}
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(260px, 1fr))", gap:"1.5rem" }}>
+            {sec.books.map((book, i) => {
+              const hasImg = book.cover && !imgErr[book.id || book.title];
+              return (
+                <div key={i}
+                  onClick={() => { const db = books.find(b => b.title === book.title); if (db) onBookClick(db); }}
+                  style={{ background:"#fff", border:`1px solid ${COLORS.border}`, borderRadius:"4px", overflow:"hidden", cursor: books.find(b => b.title === book.title) ? "pointer" : "default", transition:"all 0.2s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.transform = "translateY(-3px)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.border; e.currentTarget.style.transform = "none"; }}
+                >
+                  {hasImg && (
+                    <div style={{ height:"180px", overflow:"hidden", background:COLORS.cream }}>
+                      <img
+                        src={book.cover}
+                        alt={book.title}
+                        style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center" }}
+                        onError={() => setImgErr(prev => ({ ...prev, [book.id || book.title]: true }))}
+                      />
+                    </div>
+                  )}
+                  <div style={{ padding:"1.5rem", display:"flex", flexDirection:"column", gap:"0.6rem" }}>
+                    <div style={{ display:"flex", alignItems:"center", gap:"0.75rem" }}>
+                      <div style={{ width:"20px", height:"2px", background:sec.color, borderRadius:"1px", flexShrink:0 }} />
+                      <span style={{ fontFamily:FONTS.sans, fontSize:"0.65rem", letterSpacing:"0.12em", textTransform:"uppercase", color:sec.color }}>
+                        {book.picker}'s pick
+                      </span>
+                    </div>
+                    <h4 style={{ fontFamily:FONTS.serif, fontSize:"1.1rem", fontWeight:700, margin:0, color:COLORS.ink, lineHeight:1.3 }}>{book.title}</h4>
+                    <p style={{ fontFamily:FONTS.sans, fontSize:"0.82rem", fontStyle:"italic", color:COLORS.muted, margin:0 }}>{book.author}</p>
+                    <p style={{ fontFamily:FONTS.sans, fontSize:"0.83rem", color:COLORS.muted, lineHeight:1.6, margin:"0.2rem 0 0" }}>{book.note}</p>
+                    {book.prizes && book.prizes.length > 0 && (
+                      <div style={{ display:"flex", gap:"0.35rem", flexWrap:"wrap", marginTop:"0.25rem" }}>
+                        {book.prizes.map(p => (
+                          <span key={p} style={{ fontFamily:FONTS.sans, fontSize:"0.6rem", color:COLORS.goldDark, background:"#fdf4e0", border:`1px solid ${COLORS.goldLight}`, borderRadius:"2px", padding:"0.1rem 0.4rem" }}>{p}</span>
+                        ))}
+                      </div>
+                    )}
+                    {book.rating && (
+                      <span style={{ fontFamily:FONTS.serif, fontSize:"0.85rem", color:COLORS.goldDark, fontWeight:600 }}>★ {book.rating}</span>
+                    )}
+                    {book.status && (
+                      <span style={{ fontFamily:FONTS.sans, fontSize:"0.62rem", letterSpacing:"0.1em", textTransform:"uppercase", color: book.status==="done" ? COLORS.sage : book.status==="reading" ? COLORS.rust : COLORS.muted }}>
+                        {book.status === "done" ? "Finished" : book.status === "reading" ? "Reading now" : "Coming up"}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       ))}
-      <div style={{ marginTop:"4rem", padding:"2.5rem", border:`1px dashed ${COLORS.border}`, borderRadius:"3px", textAlign:"center" }}>
+
+      <div style={{ marginTop:"3rem", padding:"2.5rem", border:`1px dashed ${COLORS.border}`, borderRadius:"3px", textAlign:"center" }}>
         <p style={{ fontFamily:FONTS.serif, fontStyle:"italic", fontSize:"1rem", color:COLORS.muted, margin:"0 0 0.4rem" }}>Discussion notes and joint reviews coming soon.</p>
         <p style={{ fontFamily:FONTS.sans, fontSize:"0.72rem", letterSpacing:"0.1em", textTransform:"uppercase", color:COLORS.goldLight, margin:0 }}>Work in progress</p>
       </div>
@@ -633,6 +1088,19 @@ function AdminDashboard({ books, onSave, onBack }) {
                   {QUARTERS.map(q => <option key={q} value={q}>{q}</option>)}
                 </select>
               </div>
+              <div style={{ display:"grid", gridTemplateColumns:"1fr 80px", gap:"0.5rem" }}>
+                <div>
+                  <label style={S.label}>Display Month</label>
+                  <select value={editing.month || ""} onChange={e => updateBook(editing.id, "month", e.target.value)} style={S.select}>
+                    <option value="">— none —</option>
+                    {["January","February","March","April","May","June","July","August","September","October","November","December"].map(m => <option key={m} value={m}>{m}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label style={S.label}>Year</label>
+                  <input value={editing.year || ""} onChange={e => updateBook(editing.id, "year", parseInt(e.target.value) || "")} type="number" min="2024" max="2030" style={S.input} placeholder="2026"/>
+                </div>
+              </div>
               <div>
                 <label style={S.label}>Status</label>
                 <select value={editing.status} onChange={e => updateBook(editing.id, "status", e.target.value)} style={S.select}>
@@ -685,6 +1153,46 @@ function AdminDashboard({ books, onSave, onBack }) {
           </div>
         )}
       </div>
+    </div>
+  );
+}
+// ─── MUGHAL BANNER (shared across all pages) ────────────────────────────────
+function MughalBanner({ onClick }) {
+  const xs = [6,18,30,42,54,66,78,90,102,114,126,138,150,162,174,186,198,210,222,234,246,258,270,282,294,306,318,330];
+  return (
+    <div style={{ background:"#8B1A1A", width:"100%", display:"flex", justifyContent:"center", alignItems:"center", padding:"0.4rem 0", borderBottom:"2px solid #1a4a3a", cursor: onClick ? "pointer" : "default" }} onClick={onClick}>
+      <svg viewBox="0 0 680 56" xmlns="http://www.w3.org/2000/svg" style={{ width:"100%", maxWidth:"900px", height:"auto", display:"block" }}>
+        <rect width="680" height="56" fill="#8B1A1A"/>
+        <rect x="3" y="3" width="674" height="50" fill="none" stroke="#1a4a3a" strokeWidth="2"/>
+        <rect x="6" y="6" width="668" height="44" fill="none" stroke="#c9933a" strokeWidth="0.6"/>
+        <g fill="#1a4a3a">
+          {[...Array(55)].map((_,i) => {
+            const x = 8 + i*12;
+            return x < 672 ? <polygon key={i} points={`${x},7 ${x+5},3 ${x+10},7`}/> : null;
+          })}
+        </g>
+        <g fill="#1a4a3a">
+          {[...Array(55)].map((_,i) => {
+            const x = 8 + i*12;
+            return x < 672 ? <polygon key={i} points={`${x},49 ${x+5},53 ${x+10},49`}/> : null;
+          })}
+        </g>
+        <rect x="8" y="6" width="664" height="10" fill="#1a4a3a" opacity="0.6"/>
+        <rect x="8" y="40" width="664" height="10" fill="#1a4a3a" opacity="0.6"/>
+        <g opacity="0.85">
+          {[...Array(54)].map((_,i) => {
+            const x = 10 + i*12;
+            return x < 670 ? <rect key={i} x={x} y="7" width="8" height="8" rx="1" fill={i%3===0 ? "#c9933a" : "#2a6a5a"}/> : null;
+          })}
+        </g>
+        <g opacity="0.85">
+          {[...Array(54)].map((_,i) => {
+            const x = 10 + i*12;
+            return x < 670 ? <rect key={i} x={x} y="41" width="8" height="8" rx="1" fill={i%3===0 ? "#c9933a" : "#2a6a5a"}/> : null;
+          })}
+        </g>
+        <text x="340" y="35" fontFamily="'Yatra One', Georgia, serif" fontSize="22" fill="#f2c840" textAnchor="middle" letterSpacing="3">Polyphonic Synchronicity</text>
+      </svg>
     </div>
   );
 }
