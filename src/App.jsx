@@ -72,15 +72,15 @@ const DEFAULT_BOOKS = [
 function newId() { return "b" + Date.now() + Math.random().toString(36).slice(2,6); }
 
 // ─── STORAGE HELPERS ────────────────────────────────────────────────────────
-async function loadBooks() {
+function loadBooks() {
   try {
-    const r = await window.storage.get("ps_books");
-    return r ? JSON.parse(r.value) : DEFAULT_BOOKS;
+    const raw = localStorage.getItem("ps_books");
+    return raw ? JSON.parse(raw) : DEFAULT_BOOKS;
   } catch { return DEFAULT_BOOKS; }
 }
-async function saveBooks(books) {
+function saveBooks(books) {
   try {
-    await window.storage.set("ps_books", JSON.stringify(books));
+    localStorage.setItem("ps_books", JSON.stringify(books));
     return true;
   } catch { return false; }
 }
@@ -94,13 +94,15 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    loadBooks().then(b => { setBooks(b); setLoaded(true); });
+    const b = loadBooks();
+    setBooks(b);
+    setLoaded(true);
   }, []);
 
   const navigate = (p) => { setPage(p); window.scrollTo(0,0); };
 
-  const handleSaveBooks = async (newBooks) => {
-    const ok = await saveBooks(newBooks);
+  const handleSaveBooks = (newBooks) => {
+    const ok = saveBooks(newBooks);
     if (ok) setBooks(newBooks);
     return ok;
   };
@@ -126,7 +128,7 @@ export default function App() {
       ) : page === "admin" ? (
         <AdminPage books={books} onSave={handleSaveBooks} onBack={() => navigate("home")} />
       ) : (
-        <MainLayout page={page} navigate={navigate} books={books} onBookClick={(b) => { setSelectedBook(b); navigate("bookdetail"); }} />
+        <MainLayout page={page} navigate={navigate} books={books} onBookClick={(b) => { setSelectedBook(b); setPage("bookdetail"); window.scrollTo(0,0); }} />
       )}
     </>
   );
@@ -545,11 +547,10 @@ function BookDetail({ book, onBack }) {
   const [finalText, setFinalText] = useState(book.finalReview || "");
   const [saveStatus, setSaveStatus] = useState("");
 
-  const handleSaveNotes = async () => {
-    setSaveStatus("Saving…");
+  const handleSaveNotes = () => {
     try {
       const storageKey = `book_notes_${book.id}`;
-      await window.storage.set(storageKey, JSON.stringify({ initialComments: initialText, finalReview: finalText }));
+      localStorage.setItem(storageKey, JSON.stringify({ initialComments: initialText, finalReview: finalText }));
       setSaveStatus("✓ Saved");
       setTimeout(() => setSaveStatus(""), 2500);
     } catch {
@@ -559,14 +560,15 @@ function BookDetail({ book, onBack }) {
   };
 
   useEffect(() => {
-    const storageKey = `book_notes_${book.id}`;
-    window.storage.get(storageKey).then(r => {
-      if (r) {
-        const d = JSON.parse(r.value);
+    try {
+      const storageKey = `book_notes_${book.id}`;
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        const d = JSON.parse(raw);
         if (d.initialComments) setInitialText(d.initialComments);
         if (d.finalReview) setFinalText(d.finalReview);
       }
-    }).catch(() => {});
+    } catch {}
   }, [book.id]);
 
   return (
@@ -961,9 +963,9 @@ function AdminDashboard({ books, onSave, onBack }) {
     return qm && gm && pm;
   });
 
-  const handleSave = async () => {
+  const handleSave = () => {
     setSaveMsg("Saving…");
-    const ok = await onSave(localBooks);
+    const ok = onSave(localBooks);
     setSaveMsg(ok ? "✓ Saved — Reading List updated" : "Error saving. Try again.");
     setTimeout(() => setSaveMsg(""), 3000);
   };
